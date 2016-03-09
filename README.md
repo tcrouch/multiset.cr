@@ -11,7 +11,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   multiset:
-    github: [your-github-name]/multiset
+    github: tcrouch/multiset.cr
 ```
 
 
@@ -46,4 +46,4 @@ ms1 & ms2                         => Multiset{2, 3, 4}
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Tom Crouch - creator, maintainer
+- [[tcrouch]](https://github.com/tcrouch) Tom Crouch - creator, maintainer
