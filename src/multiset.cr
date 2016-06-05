@@ -7,12 +7,12 @@
 # ```
 # ms1 = Multiset.new [1, 2]
 # ms2 = Multiset{2, 1}
-# ms1 == ms2                          => true
-# ms1.add(2)                          => Multiset{1, 2, 2}
-# ms1.merge([2, 6])                   => Multiset{1, 2, 2, 2, 6}
-# ms1.multiplicity(2)                 => 3
-# ms1.subset? ms2                     => false
-# ms2.subset? ms1                     => true
+# ms1 == ms2             # => true
+# ms1.add(2)             # => Multiset{1, 2, 2}
+# ms1.merge([2, 6])      # => Multiset{1, 2, 2, 2, 6}
+# ms1.multiplicity(2)    # => 3
+# ms1.subset? ms2        # => false
+# ms2.subset? ms1        # => true
 # ```
 struct Multiset(T)
   include Enumerable(T)
@@ -28,7 +28,7 @@ struct Multiset(T)
   # ### Example
   # ```
   # ms = Multiset(Int32).new
-  # ms.empty    => true
+  # ms.empty    # => true
   # ```
   def initialize(initial_capacity = nil)
     @hash = Hash(T, Int32).new(0, initial_capacity: initial_capacity)
@@ -38,7 +38,7 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset.new([1, 2, 3, 1])    => Multiset{1, 1, 2, 3}
+  # Multiset.new([1, 2, 3, 1])    # => Multiset{1, 1, 2, 3}
   # ```
   def self.new(enumerable : Enumerable(T))
     Multiset(T).new.merge(enumerable)
@@ -48,8 +48,8 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset{1, 2, 3}.size          => 3
-  # Multiset{1, 1, 1, 2, 3}.size    => 5
+  # Multiset{1, 2, 3}.size          # => 3
+  # Multiset{1, 1, 1, 2, 3}.size    # => 5
   # ```
   def size
     @hash.values.sum
@@ -59,8 +59,8 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset(Int32).new.empty?    => true
-  # Multiset{1, 2, 3}.empty?      => false
+  # Multiset(Int32).new.empty?    # => true
+  # Multiset{1, 2, 3}.empty?      # => false
   # ```
   def empty?
     @hash.empty?
@@ -70,9 +70,9 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset{1, 2, 3}.includes?(3)      => true
-  # Multiset{1, 2, 3}.includes?(4)      => false
-  # Multiset{1, 2, 3}.includes?('a')    => false
+  # Multiset{1, 2, 3}.includes?(3)      # => true
+  # Multiset{1, 2, 3}.includes?(4)      # => false
+  # Multiset{1, 2, 3}.includes?('a')    # => false
   # ```
   def includes?(object)
     @hash.has_key?(object)
@@ -96,7 +96,7 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset{4, 5}.add(6, 2)    => Multiset{1, 2, 6, 6}
+  # Multiset{4, 5}.add(6, 2)    # => Multiset{1, 2, 6, 6}
   # ```
   def add(object : T, count : Int32)
     raise ArgumentError.new("attempt to add negative count") if count < 0
@@ -108,7 +108,7 @@ struct Multiset(T)
   #
   # ## Example
   # ```
-  # Multiset{1, 2, 3}.add(4)    => Multiset{1, 2, 3, 4}
+  # Multiset{1, 2, 3}.add(4)    # => Multiset{1, 2, 3, 4}
   # ```
   def add(object : T)
     @hash[object] += 1
@@ -120,8 +120,7 @@ struct Multiset(T)
   # ### Example
   # ```
   # ms = Multiset{1, 2, 3} 
-  # ms << 4
-  # => Multiset{1, 2, 3, 4}
+  # ms << 4    # => Multiset{1, 2, 3, 4}
   # ```
   def <<(object : T)
     add object
@@ -131,20 +130,22 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset{1, 2, 3}.merge(Multiset{3, 4, 5})    => Multiset{1, 2, 3, 3, 4, 5}
+  # ms = Multiset{3, 4, 5}
+  # Multiset{1, 2, 3}.merge(ms)    # => Multiset{1, 2, 3, 3, 4, 5}
   # ```
   def merge(elems : Multiset(T))
     elems.@hash.each { |elem, count| @hash[elem] += count }
     self
   end
 
-  # adds all elements from the given `Enumerable` and returns `self`
+  # adds `#each` element and returns `self`
   #
   # ### Example
   # ```
-  # Multiset{1, 2, 3}.merge([3, 4, 5])    => Multiset{1, 2, 3, 3, 4, 5}
+  # ary = [3, 4, 5]
+  # Multiset{1, 2, 3}.merge(ary)    # => Multiset{1, 2, 3, 3, 4, 5}
   # ```
-  def merge(elems : Enumerable)
+  def merge(elems)
     elems.each { |elem| add(elem) }
     self
   end
@@ -153,8 +154,8 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset{1, 2, 3} + Multiset{3, 4, 5}    => Multiset{1, 2, 3, 3, 4, 5}
-  # Multiset{1, 2, 3} + [3, 4, 5]            => Multiset{1, 2, 3, 3, 4, 5}
+  # Multiset{1, 2, 3} + Multiset{3, 4, 5}    # => Multiset{1, 2, 3, 3, 4, 5}
+  # Multiset{1, 2, 3} + [3, 4, 5]            # => Multiset{1, 2, 3, 3, 4, 5}
   # ```
   def +(other)
     dup.merge(other)
@@ -164,8 +165,8 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset{1, 2, 3}.delete(2)    => Multiset{1, 3}  
-  # Multiset{4, 4, 5}.delete(4)    => Multiset{4, 5}  
+  # Multiset{1, 2, 3}.delete(2)    # => Multiset{1, 3}  
+  # Multiset{4, 4, 5}.delete(4)    # => Multiset{4, 5}  
   # ```
   def delete(object)
     @hash.delete(object) if (@hash[object] -= 1) < 1
@@ -184,8 +185,8 @@ struct Multiset(T)
   # ### Example
   # ```
   # ms = Multiset{1, 2, 2}
-  # ms.multiplicity(1)    => 1
-  # ms.multiplicity(2)    => 2
+  # ms.multiplicity(1)    # => 1
+  # ms.multiplicity(2)    # => 2
   # ```
   def multiplicity(object : T)
     @hash[object]
@@ -215,7 +216,7 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset{1, 2, 3}.subtract([1, 3])    => Multiset{2}
+  # Multiset{1, 2, 3}.subtract([1, 3])    # => Multiset{2}
   # ```
   def subtract(other : Multiset)
     other.@hash.each { |elem, count| delete(elem, count) }
@@ -231,7 +232,7 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Multiset{1, 2, 3} - [1, 3]    => Multiset{2}
+  # Multiset{1, 2, 3} - [1, 3]    # => Multiset{2}
   # ```
   def -(other : Enumerable)
     dup.subtract(other)
@@ -249,8 +250,8 @@ struct Multiset(T)
   # ms2 = Multiset{1, 1, 3, 3, 6}
   # ms3 = Multiset{'a', 1, 1}
   #
-  # ms1 & ms2    => Multiset{1, 1, 3}
-  # ms1 & ms3    => Multiset{1, 1}
+  # ms1 & ms2    # => Multiset{1, 1, 3}
+  # ms1 & ms3    # => Multiset{1, 1}
   # ```
   def &(other : Multiset)
     n = Multiset(T).new
@@ -283,8 +284,8 @@ struct Multiset(T)
   # ms2 = Multiset{1, 1, 3, 3, 6}
   # ms3 = Multiset{'a', 1, 1}
   #
-  # ms1 | ms2    => Multiset{1, 1, 1, 3, 3, 6, 2, 2, 4, 5}
-  # ms1 | ms3    => Multiset{'a', 1, 1, 1, 2, 2, 3, 4, 5}
+  # ms1 | ms2    # => Multiset{1, 1, 1, 3, 3, 6, 2, 2, 4, 5}
+  # ms1 | ms3    # => Multiset{'a', 1, 1, 1, 2, 2, 3, 4, 5}
   # ```
   def |(other : Enumerable)
     union_merge(other) { |v1, v2| v1 < v2 ? v2 : v1 }
@@ -302,8 +303,8 @@ struct Multiset(T)
   # ms2 = Multiset{1, 1, 3, 3, 6}
   # ms3 = Multiset{'a', 1, 1}
   #
-  # ms1 ^ ms2    => Multiset{1, 2, 2, 3, 4, 5, 6}
-  # ms1 ^ ms3    => Multiset{'a', 1, 2, 2, 3, 4, 5}
+  # ms1 ^ ms2    # => Multiset{1, 2, 2, 3, 4, 5, 6}
+  # ms1 ^ ms3    # => Multiset{'a', 1, 2, 2, 3, 4, 5}
   # ```
   def ^(other : Enumerable)
     union_merge(other) { |v1, v2| (v1 - v2).abs }
@@ -323,7 +324,7 @@ struct Multiset(T)
   # scales the multiplicity of all elements and returns `self`
   #
   # ```
-  # Multiset{1, 2, 2} * 2    => Multiset{1, 1, 2, 2, 2, 2}
+  # Multiset{1, 2, 2} * 2    # => Multiset{1, 1, 2, 2, 2, 2}
   # ```
   def *(sf)
     raise ArgumentError.new("negative argument") if sf < 0
@@ -344,9 +345,9 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Mutiset{1, 2, 3}.superset? Multiset{1, 2}    => true
-  # Mutiset{1, 1, 2}.superset? Multiset{1, 2}    => true
-  # Mutiset{1, 2}.superset? Multiset{1, 2}       => true
+  # Mutiset{1, 2, 3}.superset? Multiset{1, 2}    # => true
+  # Mutiset{1, 1, 2}.superset? Multiset{1, 2}    # => true
+  # Mutiset{1, 2}.superset? Multiset{1, 2}       # => true
   # ```
   def superset?(other : Multiset)
     return false if size < other.size
@@ -357,9 +358,9 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Mutiset{1, 2, 3}.proper_superset? Multiset{1, 2}    => true
-  # Mutiset{1, 1, 2}.proper_superset? Multiset{1, 2}    => true
-  # Mutiset{1, 2}.proper_superset? Multiset{1, 2}       => false
+  # Mutiset{1, 2, 3}.proper_superset? Multiset{1, 2}    # => true
+  # Mutiset{1, 1, 2}.proper_superset? Multiset{1, 2}    # => true
+  # Mutiset{1, 2}.proper_superset? Multiset{1, 2}       # => false
   # ```
   def proper_superset?(other : Multiset)
     return false if size <= other.size
@@ -370,9 +371,9 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Mutiset{1, 2}.subset? Multiset{1, 2, 3}    => true
-  # Mutiset{1, 2}.subset? Multiset{1, 1, 2}    => true
-  # Mutiset{1, 2}.subset? Multiset{1, 2}       => true
+  # Mutiset{1, 2}.subset? Multiset{1, 2, 3}    # => true
+  # Mutiset{1, 2}.subset? Multiset{1, 1, 2}    # => true
+  # Mutiset{1, 2}.subset? Multiset{1, 2}       # => true
   # ```
   def subset?(other : Multiset)
     return false if size > other.size
@@ -383,9 +384,9 @@ struct Multiset(T)
   #
   # ### Example
   # ```
-  # Mutiset{1, 2}.proper_subset? Multiset{1, 2, 3}    => true
-  # Mutiset{1, 2}.proper_subset? Multiset{1, 1, 2}    => true
-  # Mutiset{1, 2}.proper_subset? Multiset{1, 2}       => false
+  # Mutiset{1, 2}.proper_subset? Multiset{1, 2, 3}    # => true
+  # Mutiset{1, 2}.proper_subset? Multiset{1, 1, 2}    # => true
+  # Mutiset{1, 2}.proper_subset? Multiset{1, 2}       # => false
   # ```
   def proper_subset?(other : Multiset)
     return false if size >= other.size
