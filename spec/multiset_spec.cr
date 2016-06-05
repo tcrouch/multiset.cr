@@ -263,6 +263,16 @@ describe "Multiset" do
       ms.merge [1, 9, 10]
       ms.should eq(Multiset{1, 1, 4, 8, 9, 10})
     end
+
+    it "adds elements from an iterator" do
+      ms = Multiset{[1, 2]}
+      ms.merge([2, 3, 4, 5].each_cons(2))
+      ms.size.should eq(4)
+      ms.includes?([1, 2]).should be_true
+      ms.includes?([2, 3]).should be_true
+      ms.includes?([3, 4]).should be_true
+      ms.includes?([4, 5]).should be_true
+    end
   end
 
   describe "#+" do
