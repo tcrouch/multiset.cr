@@ -18,7 +18,7 @@ struct Multiset(T)
   include Enumerable(T)
   include Iterable
 
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 
   # creates a new empty multiset
   #
