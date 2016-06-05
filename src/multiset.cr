@@ -30,8 +30,11 @@ struct Multiset(T)
   # ms = Multiset(Int32).new
   # ms.empty    # => true
   # ```
-  def initialize(initial_capacity = nil)
-    @hash = Hash(T, Int32).new(0, initial_capacity: initial_capacity)
+  def initialize(initial_capacity : Int32? = nil)
+    @hash = Hash(T, Int32).new(
+      default_value: 0,
+      initial_capacity: initial_capacity
+    )
   end
 
   # returns a new multiset with elements from the given `Enumerable`
@@ -450,6 +453,9 @@ struct Multiset(T)
   # :nodoc:
   class MultiEntryIterator(T)
     include Iterator(T)
+
+    @h : Hash(T, Int32)
+    @current : Hash::Entry(T, Int32)?    
 
     def initialize(@h, @current)
       @remaining = @current.try(&.value) || 0
