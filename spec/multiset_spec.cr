@@ -180,7 +180,6 @@ describe "Multiset" do
       ms1 = Multiset{1, 2, 3}
       (ms1 == ms1).should be_true
     end
-    
     context "with a Multiset" do
       it "returns true when elements are the same and unique" do
         ms1 = Multiset{1, 2, 3}
@@ -222,7 +221,7 @@ describe "Multiset" do
     context "with a Set" do
       it "returns true when the same elements are present" do
         ms = Multiset{1, 2, 3}
-        s  = Set{1, 2, 3}
+        s = Set{1, 2, 3}
         (ms == s).should be_true
       end
 
@@ -240,7 +239,7 @@ describe "Multiset" do
 
       it "returns false when elements are the same, but multiplicities are not" do
         ms = Multiset{1, 2, 3, 1}
-        s  = Set{1, 2, 3}
+        s = Set{1, 2, 3}
         (ms == s).should be_false
       end
     end
