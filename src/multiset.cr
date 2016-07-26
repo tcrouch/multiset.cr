@@ -30,7 +30,7 @@ struct Multiset(T)
   # ms = Multiset(Int32).new
   # ms.empty # => true
   # ```
-  def initialize(initial_capacity : Int32? = nil)
+  def initialize(initial_capacity = nil)
     @hash = Hash(T, Int32).new(
       default_value: 0,
       initial_capacity: initial_capacity

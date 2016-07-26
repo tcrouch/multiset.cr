@@ -16,18 +16,34 @@ describe "Multiset" do
   end
 
   describe "#new" do
-    it "returns a new multiset with elements from a given array" do
-      ms = Multiset.new([2, 4, 6, 4])
-      ms.size.should eq(4)
-      ms.to_a.sort.should eq([2, 4, 4, 6])
+    context "when passed an enumerable" do
+      it "returns a new multiset with elements from a given array" do
+        ms = Multiset.new([2, 4, 6, 4])
+        ms.size.should eq(4)
+        ms.to_a.sort.should eq([2, 4, 4, 6])
+      end
+
+      it "returns a new multiset with elements from a given tuple" do
+        ms = Multiset.new({1, "foo", 'x'})
+        ms.size.should eq(3)
+        ms.includes?(1).should be_true
+        ms.includes?("foo").should be_true
+        ms.includes?('x').should be_true
+      end
     end
 
-    it "returns a new multiset with elements from a given tuple" do
-      ms = Multiset.new({1, "foo", 'x'})
-      ms.size.should eq(3)
-      ms.includes?(1).should be_true
-      ms.includes?("foo").should be_true
-      ms.includes?('x').should be_true
+    context "when passed an initial capacity" do
+      it "returns an empty multiset" do
+        ms = Multiset(Int32).new(10)
+        ms.size.should eq 0
+      end
+    end
+
+    context "given no parameters" do
+      it "returns an empty multiset" do
+        ms = Multiset(Int32).new
+        ms.size.should eq 0
+      end
     end
   end
 
