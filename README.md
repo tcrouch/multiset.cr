@@ -2,6 +2,7 @@
 
 A multiset (bag) implementation in Crystal.
 
+[![docrystal.org](http://docrystal.org/badge.svg)](http://docrystal.org/github.com/tcrouch/multiset.cr)
 
 ## Installation
 
