@@ -356,10 +356,31 @@ describe "Multiset" do
 
   describe "#each" do
     context "with no block given" do
-      it "iterates over unique elements" do
+      context "with no values" do
+        it "returns Stop" do
+          iter = Multiset.new(Array(Int32).new).each
+          iter.next.should be_a(Iterator::Stop)
+          iter.next.should be_a(Iterator::Stop)
+          iter.rewind
+          iter.next.should be_a(Iterator::Stop)
+        end
+      end
+
+      it "iterates over unique elements of one type" do
         iter = Multiset{1, 2, 3}.each
         iter.next.should eq(1)
         iter.next.should eq(2)
+        iter.next.should eq(3)
+        iter.next.should be_a(Iterator::Stop)
+
+        iter.rewind
+        iter.next.should eq(1)
+      end
+
+      it "iterates over unique elements of union type" do
+        iter = Multiset{1, "a", 3}.each
+        iter.next.should eq(1)
+        iter.next.should eq("a")
         iter.next.should eq(3)
         iter.next.should be_a(Iterator::Stop)
 
@@ -383,11 +404,18 @@ describe "Multiset" do
     end
 
     context "with block" do
-      it "yields each element" do
-        ms = Multiset{1, 2, 2, 3}
+      it "yields each over unique elements" do
+        ms = Multiset{1, 2, 3}
         elems = [] of Int32
         ms.each { |e| elems << e }
-        elems.should eq [1, 2, 2, 3]
+        elems.should eq [1, 2, 3]
+      end
+
+      it "yields each over duplicate elements" do
+        ms = Multiset{1, 2, 3, 2, 1, 1}
+        elems = [] of Int32
+        ms.each { |e| elems << e }
+        elems.should eq [1, 1, 1, 2, 2, 3]
       end
     end
   end

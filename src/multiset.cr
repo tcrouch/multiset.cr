@@ -92,7 +92,7 @@ struct Multiset(T)
 
   # returns an iterator over each element
   def each
-    MultiEntryIterator(T).new(@hash, @hash.@first)
+    MultiEntryIterator(typeof(@hash.each), T).new(@hash.each)
   end
 
   # increments multiplicity of the given `Object` by `count` and returns self
@@ -449,33 +449,38 @@ struct Multiset(T)
   end
 
   # :nodoc:
-  class MultiEntryIterator(T)
+  private class MultiEntryIterator(I, T)
     include Iterator(T)
 
-    @h : Hash(T, Int32)
-    @current : Hash::Entry(T, Int32)?
+    @val : T | Stop
+    @count : Int32
 
-    def initialize(@h, @current)
-      @remaining = @current.try(&.value) || 0
+    def initialize(@iterator : I)
+      @val, @count = next_tuple
     end
 
     def next
-      if current = @current
-        value = current.key
-        if (@remaining -= 1) <= 0
-          @current = current.fore
-          @remaining = @current.try(&.value) || 0
-        end
-        value
-      else
-        stop
+      value = @val
+      return value if value.is_a?(Stop)
+
+      if (@count -= 1) <= 0
+        @val, @count = next_tuple
       end
+      value
     end
 
     def rewind
-      @current = @h.@first
-      @remaining = @current.try(&.value) || 0
+      @iterator.rewind
+      @val, @count = next_tuple
       self
+    end
+
+    protected def next_tuple : Tuple(T | Stop, Int32)
+      if (value = @iterator.next).is_a?(Stop)
+        {Iterator.stop, 0}
+      else
+        value
+      end
     end
   end
 end
