@@ -16,9 +16,9 @@
 # ```
 struct Multiset(T)
   include Enumerable(T)
-  include Iterable
+  include Iterable(T)
 
-  VERSION = "0.1.3"
+  VERSION = "0.2.0"
 
   # creates a new empty multiset
   #
@@ -196,7 +196,7 @@ struct Multiset(T)
   end
 
   # returns 0
-  def multiplicity(object : U)
+  def multiplicity(object : U) forall U
     0
   end
 
@@ -424,17 +424,17 @@ struct Multiset(T)
   end
 
   # :nodoc:
-  private def cast_merge(other : Multiset(U))
+  private def cast_merge(other : Multiset(U)) forall U
     Multiset(T | U).new.tap { |ms| ms.@hash.merge!(other.@hash) }
   end
 
   # :nodoc:
-  private def cast_merge(other : Enumerable(U))
+  private def cast_merge(other : Enumerable(U)) forall U
     Multiset(T | U).new.merge(other)
   end
 
   # :nodoc:
-  private def union_merge(other : Enumerable(U), &block : Int32, Int32 -> Int32)
+  private def union_merge(other : Enumerable(U), &block : Int32, Int32 -> Int32) forall U
     ms = cast_merge(other)
     oh = ms.@hash
     @hash.each do |elem, m|
