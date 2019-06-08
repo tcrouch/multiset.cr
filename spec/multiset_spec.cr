@@ -361,8 +361,6 @@ describe "Multiset" do
           iter = Multiset.new(Array(Int32).new).each
           iter.next.should be_a(Iterator::Stop)
           iter.next.should be_a(Iterator::Stop)
-          iter.rewind
-          iter.next.should be_a(Iterator::Stop)
         end
       end
 
@@ -372,9 +370,6 @@ describe "Multiset" do
         iter.next.should eq(2)
         iter.next.should eq(3)
         iter.next.should be_a(Iterator::Stop)
-
-        iter.rewind
-        iter.next.should eq(1)
       end
 
       it "iterates over unique elements of union type" do
@@ -383,9 +378,6 @@ describe "Multiset" do
         iter.next.should eq("a")
         iter.next.should eq(3)
         iter.next.should be_a(Iterator::Stop)
-
-        iter.rewind
-        iter.next.should eq(1)
       end
 
       it "iterates over duplicate elements" do
@@ -397,9 +389,6 @@ describe "Multiset" do
         iter.next.should eq(2)
         iter.next.should eq(3)
         iter.next.should be_a(Iterator::Stop)
-
-        iter.rewind
-        iter.next.should eq(1)
       end
     end
 

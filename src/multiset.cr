@@ -469,12 +469,6 @@ struct Multiset(T)
       value
     end
 
-    def rewind
-      @iterator.rewind
-      @val, @count = next_tuple
-      self
-    end
-
     protected def next_tuple : Tuple(T | Stop, Int32)
       if (value = @iterator.next).is_a?(Stop)
         {Iterator.stop, 0}
