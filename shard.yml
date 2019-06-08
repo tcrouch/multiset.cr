@@ -1,9 +1,11 @@
 name: multiset
-version: 0.2.0
+version: 0.3.0
 
-crystal: 0.21.1
+crystal: 0.28.0
 
 authors:
   - Tom Crouch <tom.crouch@gmail.com>
+description: |
+  Multiset (bag) data structure
 
 license: MIT
