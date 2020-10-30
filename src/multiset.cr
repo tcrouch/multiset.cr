@@ -399,7 +399,7 @@ struct Multiset(T)
   # returns a `String` representation of the multiset
   def to_s(io)
     io << "Multiset{"
-    join ", ", io, &.inspect(io)
+    join io, ", ", &.inspect(io)
     io << "}"
   end
 
