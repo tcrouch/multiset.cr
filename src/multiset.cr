@@ -1,9 +1,8 @@
-# Multiset implements a collection of unordered elements with duplicates.
-# Also known as Bag.
+# A `Multiset` (or **bag**) is a collection of unordered elements that is
+# similar to a set, but allows duplicate values.
 #
 # Multiset uses `Hash` as storage.
 #
-# ### Examples
 # ```
 # ms1 = Multiset.new [1, 2]
 # ms2 = Multiset{2, 1}
@@ -20,12 +19,11 @@ struct Multiset(T)
 
   VERSION = "0.3.0"
 
-  # creates a new empty multiset
+  # Create a new empty multiset
   #
-  # if `initial_capacity` is given, it will determine the initial capacity of
-  # the `Hash` used internally
+  # If an `initial_capacity` is given, it will determine the initial capacity
+  # of the `Hash` used internally
   #
-  # ### Example
   # ```
   # ms = Multiset(Int32).new
   # ms.empty # => true
@@ -37,9 +35,8 @@ struct Multiset(T)
     )
   end
 
-  # returns a new multiset with elements from the given `Enumerable`
+  # Creates a new multiset with elements from the given `Enumerable`
   #
-  # ### Example
   # ```
   # Multiset.new([1, 2, 3, 1]) # => Multiset{1, 1, 2, 3}
   # ```
@@ -47,9 +44,8 @@ struct Multiset(T)
     Multiset(T).new.merge(enumerable)
   end
 
-  # returns the number of elements
+  # Returns the number of elements in the multiset
   #
-  # ### Example
   # ```
   # Multiset{1, 2, 3}.size       # => 3
   # Multiset{1, 1, 1, 2, 3}.size # => 5
@@ -58,9 +54,8 @@ struct Multiset(T)
     @hash.values.sum
   end
 
-  # returns `true` if the multiset has no elements
+  # Returns `true` if the multiset has no elements
   #
-  # ### Example
   # ```
   # Multiset(Int32).new.empty? # => true
   # Multiset{1, 2, 3}.empty?   # => false
@@ -69,9 +64,8 @@ struct Multiset(T)
     @hash.empty?
   end
 
-  # returns `true` if given `Object` is an element in the multiset
+  # Returns `true` if given `Object` is an element in the multiset
   #
-  # ### Example
   # ```
   # Multiset{1, 2, 3}.includes?(3)   # => true
   # Multiset{1, 2, 3}.includes?(4)   # => false
@@ -81,7 +75,7 @@ struct Multiset(T)
     @hash.has_key?(object)
   end
 
-  # calls the given block for each element, yielding the element as a parameter.
+  # Calls the given block for each element, yielding the element as a parameter.
   # Returns `self`
   def each
     @hash.each do |elem, count|
@@ -90,14 +84,13 @@ struct Multiset(T)
     self
   end
 
-  # returns an iterator over each element
+  # Returns an iterator over each element
   def each
     MultiEntryIterator(typeof(@hash.each), T).new(@hash.each)
   end
 
-  # increments multiplicity of the given `Object` by `count` and returns self
+  # Increments multiplicity of the given `Object` by `count` and returns `self`
   #
-  # ### Example
   # ```
   # Multiset{4, 5}.add(6, 2) # => Multiset{1, 2, 6, 6}
   # ```
@@ -107,9 +100,8 @@ struct Multiset(T)
     self
   end
 
-  # increments multiplicity of the given `Object` and returns `self`
+  # Increments multiplicity of the given `Object` and returns `self`
   #
-  # ## Example
   # ```
   # Multiset{1, 2, 3}.add(4) # => Multiset{1, 2, 3, 4}
   # ```
@@ -118,9 +110,8 @@ struct Multiset(T)
     self
   end
 
-  # increments multiplicity of the given `Object` and returns `self`
+  # Increments multiplicity of the given `Object` and returns `self`
   #
-  # ### Example
   # ```
   # ms = Multiset{1, 2, 3}
   # ms << 4 # => Multiset{1, 2, 3, 4}
@@ -129,9 +120,8 @@ struct Multiset(T)
     add object
   end
 
-  # adds all elements from the given multiset and returns `self`
+  # Adds all elements from the given multiset and returns `self`
   #
-  # ### Example
   # ```
   # ms = Multiset{3, 4, 5}
   # Multiset{1, 2, 3}.merge(ms) # => Multiset{1, 2, 3, 3, 4, 5}
@@ -141,9 +131,8 @@ struct Multiset(T)
     self
   end
 
-  # adds `#each` element and returns `self`
+  # Adds `#each` element and returns `self`
   #
-  # ### Example
   # ```
   # ary = [3, 4, 5]
   # Multiset{1, 2, 3}.merge(ary) # => Multiset{1, 2, 3, 3, 4, 5}
@@ -153,9 +142,8 @@ struct Multiset(T)
     self
   end
 
-  # adds all objects in the given `Enumerable` to a copy of `self`
+  # Adds all objects in the given `Enumerable` to a copy of `self`
   #
-  # ### Example
   # ```
   # Multiset{1, 2, 3} + Multiset{3, 4, 5} # => Multiset{1, 2, 3, 3, 4, 5}
   # Multiset{1, 2, 3} + [3, 4, 5]         # => Multiset{1, 2, 3, 3, 4, 5}
@@ -164,9 +152,8 @@ struct Multiset(T)
     dup.merge(other)
   end
 
-  # decrements multiplicity of the given `Object` and returns `self`
+  # Decrements multiplicity of the given `Object` and returns `self`
   #
-  # ### Example
   # ```
   # Multiset{1, 2, 3}.delete(2) # => Multiset{1, 3}
   # Multiset{4, 4, 5}.delete(4) # => Multiset{4, 5}
@@ -176,16 +163,15 @@ struct Multiset(T)
     self
   end
 
-  # decrements multiplicity of the given `Object` by `count` and returns `self`
+  # Decrements multiplicity of the given `Object` by `count` and returns `self`
   def delete(object, count : Int32)
     raise ArgumentError.new("attempt to add negative count") if count < 0
     @hash.delete(object) if (@hash[object] -= count) < 1
     self
   end
 
-  # returns count of the given `Object` in the multiset
+  # Returns count of the given `Object` in the multiset
   #
-  # ### Example
   # ```
   # ms = Multiset{1, 2, 2}
   # ms.multiplicity(1) # => 1
@@ -195,29 +181,28 @@ struct Multiset(T)
     @hash[object]
   end
 
-  # returns 0
+  # Returns 0
   def multiplicity(object : U) forall U
     0
   end
 
-  # returns a duplicate of `self`
+  # Returns a duplicate of `self`
   def dup
     Multiset(T).new.merge(self)
   end
 
-  # returns `true` if both multisets contain the same elements
+  # Returns `true` if both multisets contain the same elements
   def ==(other : Multiset)
     same?(other) || @hash == other.@hash
   end
 
-  # returns `true` if both sets contain the same elements
+  # Returns `true` if both sets contain the same elements
   def ==(other : Set)
     size == other.size && other.all? { |o| includes?(o) }
   end
 
-  # removes all elements in given `Enumerable` from multiset and returns `self`
+  # Removes all elements in given `Enumerable` from multiset and returns `self`
   #
-  # ### Example
   # ```
   # Multiset{1, 2, 3}.subtract([1, 3]) # => Multiset{2}
   # ```
@@ -231,9 +216,8 @@ struct Multiset(T)
     self
   end
 
-  # returns a new multiset with all elements in given `Enumerable` removed
+  # Returns a new multiset with all elements in given `Enumerable` removed
   #
-  # ### Example
   # ```
   # Multiset{1, 2, 3} - [1, 3] # => Multiset{2}
   # ```
@@ -241,13 +225,12 @@ struct Multiset(T)
     dup.subtract(other)
   end
 
-  # returns a new multiset built by performing multiset intersection with the
+  # Returns a new multiset built by performing multiset intersection with the
   # given `Enumerable`
   #
   # For each element, new multiplicity is minimum multiplicity in either
   # multiset
   #
-  # ### Example
   # ```
   # ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5}
   # ms2 = Multiset{1, 1, 3, 3, 6}
@@ -275,13 +258,12 @@ struct Multiset(T)
     n
   end
 
-  # returns a new multiset built by performing mutiset union with the given
+  # Returns a new multiset built by performing mutiset union with the given
   # `Enumerable`
   #
   # For each element, new multiplicity is maximum multiplicity in either
   # multiset.
   #
-  # ### Example
   # ```
   # ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5}
   # ms2 = Multiset{1, 1, 3, 3, 6}
@@ -294,13 +276,12 @@ struct Multiset(T)
     union_merge(other) { |v1, v2| v1 < v2 ? v2 : v1 }
   end
 
-  # returns a new multiset built by performing symmetric difference with the
+  # Returns a new multiset built by performing symmetric difference with the
   # given `Enumerable`
   #
   # For each element, new multiplicity is absolute difference between
   # multiplicity in either multiset.
   #
-  # ### Example
   # ```
   # ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5}
   # ms2 = Multiset{1, 1, 3, 3, 6}
@@ -313,18 +294,18 @@ struct Multiset(T)
     union_merge(other) { |v1, v2| (v1 - v2).abs }
   end
 
-  # removes all elements and returns `self`
+  # Removes all elements and returns `self`
   def clear
     @hash.clear
     self
   end
 
-  # returns an `Array` containing unique elements from the multiset
+  # Returns an `Array` containing unique elements from the multiset
   def uniq
     @hash.keys
   end
 
-  # scales the multiplicity of all elements and returns `self`
+  # Scales the multiplicity of all elements and returns `self`
   #
   # ```
   # Multiset{1, 2, 2} * 2 # => Multiset{1, 1, 2, 2, 2, 2}
@@ -335,7 +316,7 @@ struct Multiset(T)
     self
   end
 
-  # returns `true` if the multiset has any element in common with `other`
+  # Returns `true` if the multiset has any element in common with `other`
   def intersects?(other : Multiset)
     if @hash.size < other.@hash.size
       any? { |o| other.includes?(o) }
@@ -344,9 +325,8 @@ struct Multiset(T)
     end
   end
 
-  # returns `true` if the multiset is a superset of given multiset
+  # Returns `true` if the multiset is a superset of given multiset
   #
-  # ### Example
   # ```
   # Mutiset{1, 2, 3}.superset? Multiset{1, 2} # => true
   # Mutiset{1, 1, 2}.superset? Multiset{1, 2} # => true
@@ -357,9 +337,8 @@ struct Multiset(T)
     other.all? { |o| multiplicity(o) >= other.multiplicity(o) }
   end
 
-  # returns `true` if the multiset is a proper superset of given multiset
+  # Returns `true` if the multiset is a proper superset of given multiset
   #
-  # ### Example
   # ```
   # Mutiset{1, 2, 3}.proper_superset? Multiset{1, 2} # => true
   # Mutiset{1, 1, 2}.proper_superset? Multiset{1, 2} # => true
@@ -370,9 +349,8 @@ struct Multiset(T)
     other.all? { |o| multiplicity(o) >= other.multiplicity(o) }
   end
 
-  # returns `true` if the multiset is a subset of given multiset
+  # Returns `true` if the multiset is a subset of given multiset
   #
-  # ### Example
   # ```
   # Mutiset{1, 2}.subset? Multiset{1, 2, 3} # => true
   # Mutiset{1, 2}.subset? Multiset{1, 1, 2} # => true
@@ -383,9 +361,8 @@ struct Multiset(T)
     all? { |o| multiplicity(o) <= other.multiplicity(o) }
   end
 
-  # returns `true` if the multiset is a proper subset of given multiset
+  # Returns `true` if the multiset is a proper subset of given multiset
   #
-  # ### Example
   # ```
   # Mutiset{1, 2}.proper_subset? Multiset{1, 2, 3} # => true
   # Mutiset{1, 2}.proper_subset? Multiset{1, 1, 2} # => true
@@ -396,14 +373,14 @@ struct Multiset(T)
     all? { |o| multiplicity(o) <= other.multiplicity(o) }
   end
 
-  # returns a `String` representation of the multiset
+  # Returns a `String` representation of the multiset
   def to_s(io)
     io << "Multiset{"
     join io, ", ", &.inspect(io)
     io << "}"
   end
 
-  # see `#to_s`
+  # See `#to_s`
   def inspect(io)
     to_s(io)
   end

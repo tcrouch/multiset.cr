@@ -1,11 +1,10 @@
 # multiset
 
-[![Build Status](https://travis-ci.org/tcrouch/multiset.cr.svg)](https://travis-ci.org/tcrouch/multiset.cr)
+[![Travis (.com)](https://img.shields.io/travis/com/tcrouch/multiset.cr)](https://www.travis-ci.com/github/tcrouch/multiset.cr)
 
 A multiset (bag) implementation in Crystal.
 
 ## Installation
-
 
 Add this to your application's `shard.yml`:
 
@@ -15,9 +14,7 @@ dependencies:
     github: tcrouch/multiset.cr
 ```
 
-
 ## Usage
-
 
 ```crystal
 require "multiset"
@@ -36,10 +33,10 @@ ms1 & ms2                         # => Multiset{2, 3, 4}
 
 ## Contributing
 
-1. Fork it ( https://github.com/tcrouch/multiset.cr/fork )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
+1. [Fork it](https://github.com/tcrouch/multiset.cr/fork)
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
 ## Contributors
