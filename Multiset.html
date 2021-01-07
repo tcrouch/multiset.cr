@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="0.3.0">
+<meta name="crystal_docs.project_name" content="multiset">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="multiset">
+  <title>Multiset(T) - multiset 0.3.0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          multiset
+        </a>
+      </h1>
+
+      <span class="project-version">
+        0.3.0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" current" data-id="multiset/Multiset" data-name="multiset(t)">
+      <a href="Multiset.html">Multiset</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Multiset(T)
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Multiset.html">Multiset(T)</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>A <code><a href="Multiset.html">Multiset</a></code> (or <strong>bag</strong>) is a collection of unordered elements that is
+similar to a set, but allows duplicate values.</p>
+
+<p>Multiset uses <code>Hash</code> as storage.</p>
+
+<pre><code>ms1 <span class="o">=</span> <span class="t">Multiset</span>.<span class="k">new</span> [<span class="n">1</span>, <span class="n">2</span>]
+ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">2</span>, <span class="n">1</span>}
+ms1 <span class="o">==</span> ms2          <span class="c"># =&gt; true</span>
+ms1.add(<span class="n">2</span>)          <span class="c"># =&gt; Multiset{1, 2, 2}</span>
+ms1.merge([<span class="n">2</span>, <span class="n">6</span>])   <span class="c"># =&gt; Multiset{1, 2, 2, 2, 6}</span>
+ms1.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 3</span>
+ms1.subset? ms2     <span class="c"># =&gt; false</span>
+ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">Enumerable(T)</li>
+    
+      <li class="other-type">Iterable(T)</li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">&quot;0.3.0&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(enumerable:Enumerable(T))-class-method" class="signature"><strong>.new</strong>(enumerable : Enumerable(T))</a>
+        
+          <div class="summary"><p>Creates a new multiset with elements from the given <code>Enumerable</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(initial_capacity=nil)-class-method" class="signature"><strong>.new</strong>(initial_capacity = <span class="n">nil</span>)</a>
+        
+          <div class="summary"><p>Create a new empty multiset</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#&(other:Multiset)-instance-method" class="signature"><strong>#&</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns a new multiset built by performing multiset intersection with the given <code>Enumerable</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#&(other:Enumerable)-instance-method" class="signature"><strong>#&</strong>(other : Enumerable)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#*(sf)-instance-method" class="signature"><strong>#*</strong>(sf)</a>
+        
+          <div class="summary"><p>Scales the multiplicity of all elements and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#+(other)-instance-method" class="signature"><strong>#+</strong>(other)</a>
+        
+          <div class="summary"><p>Adds all objects in the given <code>Enumerable</code> to a copy of <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-(other:Enumerable)-instance-method" class="signature"><strong>#-</strong>(other : Enumerable)</a>
+        
+          <div class="summary"><p>Returns a new multiset with all elements in given <code>Enumerable</code> removed</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3C%3C(object:T)-instance-method" class="signature"><strong>#<<</strong>(object : T)</a>
+        
+          <div class="summary"><p>Increments multiplicity of the given <code>Object</code> and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#==(other:Multiset)-instance-method" class="signature"><strong>#==</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if both multisets contain the same elements</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#==(other:Set)-instance-method" class="signature"><strong>#==</strong>(other : Set)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if both sets contain the same elements</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5E(other:Enumerable)-instance-method" class="signature"><strong>#^</strong>(other : Enumerable)</a>
+        
+          <div class="summary"><p>Returns a new multiset built by performing symmetric difference with the given <code>Enumerable</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add(object:T)-instance-method" class="signature"><strong>#add</strong>(object : T)</a>
+        
+          <div class="summary"><p>Increments multiplicity of the given <code>Object</code> and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add(object:T,count:Int32)-instance-method" class="signature"><strong>#add</strong>(object : T, count : Int32)</a>
+        
+          <div class="summary"><p>Increments multiplicity of the given <code>Object</code> by <code>count</code> and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear-instance-method" class="signature"><strong>#clear</strong></a>
+        
+          <div class="summary"><p>Removes all elements and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete(object,count:Int32)-instance-method" class="signature"><strong>#delete</strong>(object, count : Int32)</a>
+        
+          <div class="summary"><p>Decrements multiplicity of the given <code>Object</code> by <code>count</code> and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete(object)-instance-method" class="signature"><strong>#delete</strong>(object)</a>
+        
+          <div class="summary"><p>Decrements multiplicity of the given <code>Object</code> and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dup-instance-method" class="signature"><strong>#dup</strong></a>
+        
+          <div class="summary"><p>Returns a duplicate of <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each-instance-method" class="signature"><strong>#each</strong></a>
+        
+          <div class="summary"><p>Returns an iterator over each element</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each(&)-instance-method" class="signature"><strong>#each</strong>(&)</a>
+        
+          <div class="summary"><p>Calls the given block for each element, yielding the element as a parameter.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#empty?-instance-method" class="signature"><strong>#empty?</strong></a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset has no elements</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#includes?(object)-instance-method" class="signature"><strong>#includes?</strong>(object)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if given <code>Object</code> is an element in the multiset</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inspect(io)-instance-method" class="signature"><strong>#inspect</strong>(io)</a>
+        
+          <div class="summary"><p>See <code><a href="Multiset.html#to_s(io)-instance-method">#to_s</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#intersects?(other:Multiset)-instance-method" class="signature"><strong>#intersects?</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset has any element in common with <code>other</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#merge(elems)-instance-method" class="signature"><strong>#merge</strong>(elems)</a>
+        
+          <div class="summary"><p>Adds <code><a href="Multiset.html#each-instance-method">#each</a></code> element and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#merge(elems:Multiset(T))-instance-method" class="signature"><strong>#merge</strong>(elems : Multiset(T))</a>
+        
+          <div class="summary"><p>Adds all elements from the given multiset and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#multiplicity(object:U)forallU-instance-method" class="signature"><strong>#multiplicity</strong>(object : U) forall U</a>
+        
+          <div class="summary"><p>Returns 0</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#multiplicity(object:T)-instance-method" class="signature"><strong>#multiplicity</strong>(object : T)</a>
+        
+          <div class="summary"><p>Returns count of the given <code>Object</code> in the multiset</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#proper_subset?(other:Multiset)-instance-method" class="signature"><strong>#proper_subset?</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset is a proper subset of given multiset</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#proper_superset?(other:Multiset)-instance-method" class="signature"><strong>#proper_superset?</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset is a proper superset of given multiset</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size-instance-method" class="signature"><strong>#size</strong></a>
+        
+          <div class="summary"><p>Returns the number of elements in the multiset</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subset?(other:Multiset)-instance-method" class="signature"><strong>#subset?</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset is a subset of given multiset</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subtract(other:Enumerable)-instance-method" class="signature"><strong>#subtract</strong>(other : Enumerable)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subtract(other:Multiset)-instance-method" class="signature"><strong>#subtract</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Removes all elements in given <code>Enumerable</code> from multiset and returns <code>self</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#superset?(other:Multiset)-instance-method" class="signature"><strong>#superset?</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset is a superset of given multiset</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s(io)-instance-method" class="signature"><strong>#to_s</strong>(io)</a>
+        
+          <div class="summary"><p>Returns a <code>String</code> representation of the multiset</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#uniq-instance-method" class="signature"><strong>#uniq</strong></a>
+        
+          <div class="summary"><p>Returns an <code>Array</code> containing unique elements from the multiset</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%7C(other:Enumerable)-instance-method" class="signature"><strong>#|</strong>(other : Enumerable)</a>
+        
+          <div class="summary"><p>Returns a new multiset built by performing mutiset union with the given <code>Enumerable</code></p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(enumerable:Enumerable(T))-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(enumerable : Enumerable(T))
+
+        <a class="method-permalink" href="#new(enumerable:Enumerable(T))-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new multiset with elements from the given <code>Enumerable</code></p>
+
+<pre><code><span class="t">Multiset</span>.<span class="k">new</span>([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">1</span>]) <span class="c"># =&gt; Multiset{1, 1, 2, 3}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(initial_capacity=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(initial_capacity = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new(initial_capacity=nil)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create a new empty multiset</p>
+
+<p>If an <code>initial_capacity</code> is given, it will determine the initial capacity
+of the <code>Hash</code> used internally</p>
+
+<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>(<span class="t">Int32</span>).<span class="k">new</span>
+ms.empty <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="&(other:Multiset)-instance-method">
+      <div class="signature">
+        
+        def <strong>&</strong>(other : <a href="Multiset.html">Multiset</a>)
+
+        <a class="method-permalink" href="#&(other:Multiset)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a new multiset built by performing multiset intersection with the
+given <code>Enumerable</code></p>
+
+<p>For each element, new multiplicity is minimum multiplicity in either
+multiset</p>
+
+<pre><code>ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
+ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
+
+ms1 <span class="o">&amp;</span> ms2 <span class="c"># =&gt; Multiset{1, 1, 3}</span>
+ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>&</strong>(other : Enumerable)
+
+        <a class="method-permalink" href="#&(other:Enumerable)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="*(sf)-instance-method">
+      <div class="signature">
+        
+        def <strong>*</strong>(sf)
+
+        <a class="method-permalink" href="#*(sf)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Scales the multiplicity of all elements and returns <code>self</code></p>
+
+<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>} <span class="o">*</span> <span class="n">2</span> <span class="c"># =&gt; Multiset{1, 1, 2, 2, 2, 2}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="+(other)-instance-method">
+      <div class="signature">
+        
+        def <strong>+</strong>(other)
+
+        <a class="method-permalink" href="#+(other)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds all objects in the given <code>Enumerable</code> to a copy of <code>self</code></p>
+
+<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">+</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>} <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span>
+<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">+</span> [<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>]         <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>(other : Enumerable)
+
+        <a class="method-permalink" href="#-(other:Enumerable)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a new multiset with all elements in given <code>Enumerable</code> removed</p>
+
+<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">-</span> [<span class="n">1</span>, <span class="n">3</span>] <span class="c"># =&gt; Multiset{2}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="<<(object:T)-instance-method">
+      <div class="signature">
+        
+        def <strong><<</strong>(object : T)
+
+        <a class="method-permalink" href="#%3C%3C(object:T)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Increments multiplicity of the given <code>Object</code> and returns <code>self</code></p>
+
+<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
+ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&gt; Multiset{1, 2, 3, 4}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="==(other:Multiset)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other : <a href="Multiset.html">Multiset</a>)
+
+        <a class="method-permalink" href="#==(other:Multiset)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if both multisets contain the same elements</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="==(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other : Set)
+
+        <a class="method-permalink" href="#==(other:Set)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if both sets contain the same elements</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="^(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>^</strong>(other : Enumerable)
+
+        <a class="method-permalink" href="#%5E(other:Enumerable)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a new multiset built by performing symmetric difference with the
+given <code>Enumerable</code></p>
+
+<p>For each element, new multiplicity is absolute difference between
+multiplicity in either multiset.</p>
+
+<pre><code>ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
+ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
+
+ms1 <span class="o">^</span> ms2 <span class="c"># =&gt; Multiset{1, 2, 2, 3, 4, 5, 6}</span>
+ms1 <span class="o">^</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1, 2, 2, 3, 4, 5}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add(object:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>add</strong>(object : T)
+
+        <a class="method-permalink" href="#add(object:T)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Increments multiplicity of the given <code>Object</code> and returns <code>self</code></p>
+
+<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.add(<span class="n">4</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add(object:T,count:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>add</strong>(object : T, count : Int32)
+
+        <a class="method-permalink" href="#add(object:T,count:Int32)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Increments multiplicity of the given <code>Object</code> by <code>count</code> and returns <code>self</code></p>
+
+<pre><code><span class="t">Multiset</span>{<span class="n">4</span>, <span class="n">5</span>}.add(<span class="n">6</span>, <span class="n">2</span>) <span class="c"># =&gt; Multiset{1, 2, 6, 6}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear-instance-method">
+      <div class="signature">
+        
+        def <strong>clear</strong>
+
+        <a class="method-permalink" href="#clear-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Removes all elements and returns <code>self</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete(object,count:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete</strong>(object, count : Int32)
+
+        <a class="method-permalink" href="#delete(object,count:Int32)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Decrements multiplicity of the given <code>Object</code> by <code>count</code> and returns <code>self</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete(object)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete</strong>(object)
+
+        <a class="method-permalink" href="#delete(object)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Decrements multiplicity of the given <code>Object</code> and returns <code>self</code></p>
+
+<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.delete(<span class="n">2</span>) <span class="c"># =&gt; Multiset{1, 3}</span>
+<span class="t">Multiset</span>{<span class="n">4</span>, <span class="n">4</span>, <span class="n">5</span>}.delete(<span class="n">4</span>) <span class="c"># =&gt; Multiset{4, 5}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dup-instance-method">
+      <div class="signature">
+        
+        def <strong>dup</strong>
+
+        <a class="method-permalink" href="#dup-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a duplicate of <code>self</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each-instance-method">
+      <div class="signature">
+        
+        def <strong>each</strong>
+
+        <a class="method-permalink" href="#each-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an iterator over each element</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>each</strong>(&)
+
+        <a class="method-permalink" href="#each(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Calls the given block for each element, yielding the element as a parameter.
+Returns <code>self</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="empty?-instance-method">
+      <div class="signature">
+        
+        def <strong>empty?</strong>
+
+        <a class="method-permalink" href="#empty?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset has no elements</p>
+
+<pre><code><span class="t">Multiset</span>(<span class="t">Int32</span>).<span class="k">new</span>.empty? <span class="c"># =&gt; true</span>
+<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.empty?   <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="includes?(object)-instance-method">
+      <div class="signature">
+        
+        def <strong>includes?</strong>(object)
+
+        <a class="method-permalink" href="#includes?(object)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if given <code>Object</code> is an element in the multiset</p>
+
+<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="n">3</span>)   <span class="c"># =&gt; true</span>
+<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="n">4</span>)   <span class="c"># =&gt; false</span>
+<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="s">&#39;a&#39;</span>) <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inspect(io)-instance-method">
+      <div class="signature">
+        
+        def <strong>inspect</strong>(io)
+
+        <a class="method-permalink" href="#inspect(io)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="Multiset.html#to_s(io)-instance-method">#to_s</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="intersects?(other:Multiset)-instance-method">
+      <div class="signature">
+        
+        def <strong>intersects?</strong>(other : <a href="Multiset.html">Multiset</a>)
+
+        <a class="method-permalink" href="#intersects?(other:Multiset)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset has any element in common with <code>other</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="merge(elems)-instance-method">
+      <div class="signature">
+        
+        def <strong>merge</strong>(elems)
+
+        <a class="method-permalink" href="#merge(elems)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds <code><a href="Multiset.html#each-instance-method">#each</a></code> element and returns <code>self</code></p>
+
+<pre><code>ary <span class="o">=</span> [<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>]
+<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.merge(ary) <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="merge(elems:Multiset(T))-instance-method">
+      <div class="signature">
+        
+        def <strong>merge</strong>(elems : <a href="Multiset.html">Multiset</a>(T))
+
+        <a class="method-permalink" href="#merge(elems:Multiset(T))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds all elements from the given multiset and returns <code>self</code></p>
+
+<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.merge(ms) <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="multiplicity(object:U)forallU-instance-method">
+      <div class="signature">
+        
+        def <strong>multiplicity</strong>(object : U) forall U
+
+        <a class="method-permalink" href="#multiplicity(object:U)forallU-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns 0</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="multiplicity(object:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>multiplicity</strong>(object : T)
+
+        <a class="method-permalink" href="#multiplicity(object:T)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns count of the given <code>Object</code> in the multiset</p>
+
+<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>}
+ms.multiplicity(<span class="n">1</span>) <span class="c"># =&gt; 1</span>
+ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="proper_subset?(other:Multiset)-instance-method">
+      <div class="signature">
+        
+        def <strong>proper_subset?</strong>(other : <a href="Multiset.html">Multiset</a>)
+
+        <a class="method-permalink" href="#proper_subset?(other:Multiset)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset is a proper subset of given multiset</p>
+
+<pre><code><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="proper_superset?(other:Multiset)-instance-method">
+      <div class="signature">
+        
+        def <strong>proper_superset?</strong>(other : <a href="Multiset.html">Multiset</a>)
+
+        <a class="method-permalink" href="#proper_superset?(other:Multiset)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset is a proper superset of given multiset</p>
+
+<pre><code><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size-instance-method">
+      <div class="signature">
+        
+        def <strong>size</strong>
+
+        <a class="method-permalink" href="#size-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of elements in the multiset</p>
+
+<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.size       <span class="c"># =&gt; 3</span>
+<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.size <span class="c"># =&gt; 5</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subset?(other:Multiset)-instance-method">
+      <div class="signature">
+        
+        def <strong>subset?</strong>(other : <a href="Multiset.html">Multiset</a>)
+
+        <a class="method-permalink" href="#subset?(other:Multiset)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset is a subset of given multiset</p>
+
+<pre><code><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subtract(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>subtract</strong>(other : Enumerable)
+
+        <a class="method-permalink" href="#subtract(other:Enumerable)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subtract(other:Multiset)-instance-method">
+      <div class="signature">
+        
+        def <strong>subtract</strong>(other : <a href="Multiset.html">Multiset</a>)
+
+        <a class="method-permalink" href="#subtract(other:Multiset)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Removes all elements in given <code>Enumerable</code> from multiset and returns <code>self</code></p>
+
+<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c"># =&gt; Multiset{2}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="superset?(other:Multiset)-instance-method">
+      <div class="signature">
+        
+        def <strong>superset?</strong>(other : <a href="Multiset.html">Multiset</a>)
+
+        <a class="method-permalink" href="#superset?(other:Multiset)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset is a superset of given multiset</p>
+
+<pre><code><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s(io)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>(io)
+
+        <a class="method-permalink" href="#to_s(io)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a <code>String</code> representation of the multiset</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="uniq-instance-method">
+      <div class="signature">
+        
+        def <strong>uniq</strong>
+
+        <a class="method-permalink" href="#uniq-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an <code>Array</code> containing unique elements from the multiset</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="|(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>|</strong>(other : Enumerable)
+
+        <a class="method-permalink" href="#%7C(other:Enumerable)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a new multiset built by performing mutiset union with the given
+<code>Enumerable</code></p>
+
+<p>For each element, new multiplicity is maximum multiplicity in either
+multiset.</p>
+
+<pre><code>ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
+ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
+
+ms1 <span class="o">|</span> ms2 <span class="c"># =&gt; Multiset{1, 1, 1, 3, 3, 6, 2, 2, 4, 5}</span>
+ms1 <span class="o">|</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1, 1, 1, 2, 2, 3, 4, 5}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
