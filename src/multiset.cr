@@ -19,10 +19,10 @@ struct Multiset(T)
 
   VERSION = "0.3.0"
 
-  # Create a new empty multiset
+  # Create a new empty `Multiset`.
   #
-  # If an `initial_capacity` is given, it will determine the initial capacity
-  # of the `Hash` used internally
+  # If an `initial_capacity` is given, it will set the initial capacity
+  # of the internal `Hash`.
   #
   # ```
   # ms = Multiset(Int32).new
@@ -35,7 +35,7 @@ struct Multiset(T)
     )
   end
 
-  # Creates a new multiset with elements from the given `Enumerable`
+  # Creates a new multiset from the elements in **enumerable**.
   #
   # ```
   # Multiset.new([1, 2, 3, 1]) # => Multiset{1, 1, 2, 3}
@@ -44,7 +44,7 @@ struct Multiset(T)
     Multiset(T).new.merge(enumerable)
   end
 
-  # Returns the number of elements in the multiset
+  # Returns the number of elements in the multiset.
   #
   # ```
   # Multiset{1, 2, 3}.size       # => 3
@@ -54,7 +54,7 @@ struct Multiset(T)
     @hash.values.sum
   end
 
-  # Returns `true` if the multiset has no elements
+  # Returns `true` if the multiset has no elements.
   #
   # ```
   # Multiset(Int32).new.empty? # => true
@@ -64,7 +64,7 @@ struct Multiset(T)
     @hash.empty?
   end
 
-  # Returns `true` if given `Object` is an element in the multiset
+  # Returns `true` if **other** is an element in the multiset.
   #
   # ```
   # Multiset{1, 2, 3}.includes?(3)   # => true
@@ -75,8 +75,7 @@ struct Multiset(T)
     @hash.has_key?(object)
   end
 
-  # Calls the given block for each element, yielding the element as a parameter.
-  # Returns `self`
+  # Yields each element of the multiset, and returns `self`.
   def each
     @hash.each do |elem, count|
       count.times { yield elem }
@@ -84,15 +83,16 @@ struct Multiset(T)
     self
   end
 
-  # Returns an iterator over each element
+  # Returns an iterator for each element of the multiset.
   def each
     MultiEntryIterator(typeof(@hash.each), T).new(@hash.each)
   end
 
-  # Increments multiplicity of the given `Object` by `count` and returns `self`
+  # Increments multiplicity of **object** by **count** and returns `self`.
   #
   # ```
-  # Multiset{4, 5}.add(6, 2) # => Multiset{1, 2, 6, 6}
+  # ms = Multiset{1, 2, 3}
+  # ms.add(4, 2) # => Multiset{1, 2, 3, 4, 4}
   # ```
   def add(object : T, count : Int32)
     raise ArgumentError.new("attempt to add negative count") if count < 0
@@ -100,17 +100,18 @@ struct Multiset(T)
     self
   end
 
-  # Increments multiplicity of the given `Object` and returns `self`
+  # Increments multiplicity of **object** and returns `self`.
   #
   # ```
-  # Multiset{1, 2, 3}.add(4) # => Multiset{1, 2, 3, 4}
+  # ms = Multiset{1, 2, 3}
+  # ms.add(4) # => Multiset{1, 2, 3, 4}
   # ```
   def add(object : T)
     @hash[object] += 1
     self
   end
 
-  # Increments multiplicity of the given `Object` and returns `self`
+  # Alias for `add`.
   #
   # ```
   # ms = Multiset{1, 2, 3}
@@ -120,29 +121,30 @@ struct Multiset(T)
     add object
   end
 
-  # Adds all elements from the given multiset and returns `self`
+  # Adds each element of **other** and returns `self`.
   #
   # ```
   # ms = Multiset{3, 4, 5}
   # Multiset{1, 2, 3}.merge(ms) # => Multiset{1, 2, 3, 3, 4, 5}
   # ```
-  def merge(elems : Multiset(T))
-    elems.@hash.each { |elem, count| @hash[elem] += count }
+  def merge(other : Multiset(T))
+    other.@hash.each { |elem, count| @hash[elem] += count }
     self
   end
 
-  # Adds `#each` element and returns `self`
+  # Adds each element of **elems** and returns `self`.
   #
   # ```
-  # ary = [3, 4, 5]
-  # Multiset{1, 2, 3}.merge(ary) # => Multiset{1, 2, 3, 3, 4, 5}
+  # ms = Multiset{1, 2, 3}
+  # ms.merge([3, 4, 5]) # => Multiset{1, 2, 3, 3, 4, 5}
   # ```
   def merge(elems)
     elems.each { |elem| add(elem) }
     self
   end
 
-  # Adds all objects in the given `Enumerable` to a copy of `self`
+  # Returns a new multiset containing the elements from both `self` and
+  # **other**.
   #
   # ```
   # Multiset{1, 2, 3} + Multiset{3, 4, 5} # => Multiset{1, 2, 3, 3, 4, 5}
@@ -152,7 +154,7 @@ struct Multiset(T)
     dup.merge(other)
   end
 
-  # Decrements multiplicity of the given `Object` and returns `self`
+  # Decrements multiplicity of **object** and returns `self`.
   #
   # ```
   # Multiset{1, 2, 3}.delete(2) # => Multiset{1, 3}
@@ -163,14 +165,19 @@ struct Multiset(T)
     self
   end
 
-  # Decrements multiplicity of the given `Object` by `count` and returns `self`
+  # Decrements multiplicity of **object** by **count** and returns `self`.
+  #
+  # ```
+  # Multiset{1, 2, 3}.delete(2, 1) # => Multiset{1, 3}
+  # Multiset{4, 4, 5}.delete(4, 2) # => Multiset{5}
+  # ```
   def delete(object, count : Int32)
     raise ArgumentError.new("attempt to add negative count") if count < 0
     @hash.delete(object) if (@hash[object] -= count) < 1
     self
   end
 
-  # Returns count of the given `Object` in the multiset
+  # Returns count of **object** in the multiset.
   #
   # ```
   # ms = Multiset{1, 2, 2}
@@ -181,42 +188,49 @@ struct Multiset(T)
     @hash[object]
   end
 
-  # Returns 0
+  # Returns `0`.
   def multiplicity(object : U) forall U
     0
   end
 
-  # Returns a duplicate of `self`
+  # Returns a duplicate of `self`.
   def dup
     Multiset(T).new.merge(self)
   end
 
-  # Returns `true` if both multisets contain the same elements
+  # Returns `true` if both multisets contain the same elements.
   def ==(other : Multiset)
     same?(other) || @hash == other.@hash
   end
 
-  # Returns `true` if both sets contain the same elements
+  # Returns `true` if both sets contain the same elements.
   def ==(other : Set)
     size == other.size && other.all? { |o| includes?(o) }
   end
 
-  # Removes all elements in given `Enumerable` from multiset and returns `self`
+  # Removes all elements in **other** and returns `self`.
   #
   # ```
-  # Multiset{1, 2, 3}.subtract([1, 3]) # => Multiset{2}
+  # ms = Multiset{1, 2, 3}
+  # ms.subtract(Multiset{1, 3}) # => Multiset{2}
   # ```
   def subtract(other : Multiset)
     other.@hash.each { |elem, count| delete(elem, count) }
     self
   end
 
+  # Removes all elements in **other** and returns `self`.
+  #
+  # ```
+  # ms = Multiset{1, 2, 3}
+  # ms.subtract([1, 3]) # => Multiset{2}
+  # ```
   def subtract(other : Enumerable)
     other.each { |e| delete(e) }
     self
   end
 
-  # Returns a new multiset with all elements in given `Enumerable` removed
+  # Returns a new multiset with all elements in **other** removed.
   #
   # ```
   # Multiset{1, 2, 3} - [1, 3] # => Multiset{2}
@@ -225,8 +239,7 @@ struct Multiset(T)
     dup.subtract(other)
   end
 
-  # Returns a new multiset built by performing multiset intersection with the
-  # given `Enumerable`
+  # Returns a new multiset by performing multiset intersection with **other**.
   #
   # For each element, new multiplicity is minimum multiplicity in either
   # multiset
@@ -258,8 +271,7 @@ struct Multiset(T)
     n
   end
 
-  # Returns a new multiset built by performing mutiset union with the given
-  # `Enumerable`
+  # Returns a new multiset by performing mutiset union with **other**.
   #
   # For each element, new multiplicity is maximum multiplicity in either
   # multiset.
@@ -276,8 +288,7 @@ struct Multiset(T)
     union_merge(other) { |v1, v2| v1 < v2 ? v2 : v1 }
   end
 
-  # Returns a new multiset built by performing symmetric difference with the
-  # given `Enumerable`
+  # Returns a new multiset by performing symmetric difference with **other**.
   #
   # For each element, new multiplicity is absolute difference between
   # multiplicity in either multiset.
@@ -294,18 +305,24 @@ struct Multiset(T)
     union_merge(other) { |v1, v2| (v1 - v2).abs }
   end
 
-  # Removes all elements and returns `self`
+  # Removes all elements and returns `self`.
+  #
+  # ```
+  # ms = Multiset{1, 2, 2}
+  # ms.clear
+  # ms.empty? # => true
+  # ```
   def clear
     @hash.clear
     self
   end
 
-  # Returns an `Array` containing unique elements from the multiset
+  # Returns an `Array` containing unique elements from the multiset.
   def uniq
     @hash.keys
   end
 
-  # Scales the multiplicity of all elements and returns `self`
+  # Scales the multiplicity of all elements by **sf** and returns `self`.
   #
   # ```
   # Multiset{1, 2, 2} * 2 # => Multiset{1, 1, 2, 2, 2, 2}
@@ -316,7 +333,7 @@ struct Multiset(T)
     self
   end
 
-  # Returns `true` if the multiset has any element in common with `other`
+  # Returns `true` if the multiset has any element in common with **other**.
   def intersects?(other : Multiset)
     if @hash.size < other.@hash.size
       any? { |o| other.includes?(o) }
@@ -325,7 +342,7 @@ struct Multiset(T)
     end
   end
 
-  # Returns `true` if the multiset is a superset of given multiset
+  # Returns `true` if the multiset is a superset of **other**.
   #
   # ```
   # Mutiset{1, 2, 3}.superset? Multiset{1, 2} # => true
@@ -337,7 +354,7 @@ struct Multiset(T)
     other.all? { |o| multiplicity(o) >= other.multiplicity(o) }
   end
 
-  # Returns `true` if the multiset is a proper superset of given multiset
+  # Returns `true` if the multiset is a proper superset of **other**.
   #
   # ```
   # Mutiset{1, 2, 3}.proper_superset? Multiset{1, 2} # => true
@@ -349,7 +366,7 @@ struct Multiset(T)
     other.all? { |o| multiplicity(o) >= other.multiplicity(o) }
   end
 
-  # Returns `true` if the multiset is a subset of given multiset
+  # Returns `true` if the multiset is a subset of **other**.
   #
   # ```
   # Mutiset{1, 2}.subset? Multiset{1, 2, 3} # => true
@@ -361,7 +378,7 @@ struct Multiset(T)
     all? { |o| multiplicity(o) <= other.multiplicity(o) }
   end
 
-  # Returns `true` if the multiset is a proper subset of given multiset
+  # Returns `true` if the multiset is a proper subset of **other**.
   #
   # ```
   # Mutiset{1, 2}.proper_subset? Multiset{1, 2, 3} # => true
@@ -373,14 +390,14 @@ struct Multiset(T)
     all? { |o| multiplicity(o) <= other.multiplicity(o) }
   end
 
-  # Returns a `String` representation of the multiset
+  # Writes a string representation of the multiset to **io**.
   def to_s(io : IO) : Nil
     io << "Multiset{"
     join io, ", ", &.inspect(io)
     io << "}"
   end
 
-  # See `#to_s`
+  # Alias of `#to_s`.
   def inspect(io : IO) : Nil
     to_s(io)
   end
