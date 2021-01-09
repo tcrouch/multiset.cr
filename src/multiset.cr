@@ -374,14 +374,14 @@ struct Multiset(T)
   end
 
   # Returns a `String` representation of the multiset
-  def to_s(io)
+  def to_s(io : IO) : Nil
     io << "Multiset{"
     join io, ", ", &.inspect(io)
     io << "}"
   end
 
   # See `#to_s`
-  def inspect(io)
+  def inspect(io : IO) : Nil
     to_s(io)
   end
 
