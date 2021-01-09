@@ -310,7 +310,7 @@ struct Multiset(T)
   # ```
   # Multiset{1, 2, 2} * 2 # => Multiset{1, 1, 2, 2, 2, 2}
   # ```
-  def *(sf)
+  def *(sf : Int32)
     raise ArgumentError.new("negative argument") if sf < 0
     sf == 0 ? clear : @hash.merge!(@hash) { |_, v| sf * v }
     self
