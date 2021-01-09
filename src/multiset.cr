@@ -385,10 +385,8 @@ struct Multiset(T)
     to_s(io)
   end
 
-  # :nodoc:
-  def hash
-    @hash.hash
-  end
+  # See `Object#hash(hasher)`
+  def_hash @hash
 
   # :nodoc:
   def object_id
