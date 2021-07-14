@@ -1,6 +1,5 @@
 # multiset
 
-[![Travis (.com)](https://img.shields.io/travis/com/tcrouch/multiset.cr)](https://www.travis-ci.com/github/tcrouch/multiset.cr)
 [![Documentation](https://img.shields.io/badge/api-docs-informational)](https://tcrouch.github.io/multiset.cr)
 
 A multiset (bag) implementation in Crystal.
