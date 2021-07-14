@@ -3,21 +3,16 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="generator" content="Crystal Docs 0.36.1">
 <meta name="crystal_docs.project_version" content="0.3.0">
 <meta name="crystal_docs.project_name" content="multiset">
+
 
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
 
-<svg class="hidden">
-  <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-  </symbol>
-</svg>
-
-  <meta id="repository-name" content="multiset">
+  <meta name="repository-name" content="multiset">
   <title>Multiset(T) - multiset 0.3.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "";
@@ -25,6 +20,11 @@
 </head>
 <body>
 
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div class="search-results" class="hidden">
+  <div class="search-results hidden">
     <ul class="search-list"></ul>
   </div>
 
@@ -89,7 +89,7 @@ similar to a set, but allows duplicate values.</p>
 
 <p>Multiset uses <code>Hash</code> as storage.</p>
 
-<pre><code>ms1 <span class="o">=</span> <span class="t">Multiset</span>.<span class="k">new</span> [<span class="n">1</span>, <span class="n">2</span>]
+<pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>.<span class="k">new</span> [<span class="n">1</span>, <span class="n">2</span>]
 ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">2</span>, <span class="n">1</span>}
 ms1 <span class="o">==</span> ms2          <span class="c"># =&gt; true</span>
 ms1.add(<span class="n">2</span>)          <span class="c"># =&gt; Multiset{1, 2, 2}</span>
@@ -135,6 +135,11 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
 </a>
     Defined in:
   </h2>
+  
+    
+      multiset.cr
+    
+    <br/>
   
 
 
@@ -532,7 +537,7 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
           
           <p>Creates a new multiset from the elements in <strong>enumerable</strong>.</p>
 
-<pre><code><span class="t">Multiset</span>.<span class="k">new</span>([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">1</span>]) <span class="c"># =&gt; Multiset{1, 1, 2, 3}</span></code></pre>
+<pre><code class="language-crystal"><span class="t">Multiset</span>.<span class="k">new</span>([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">1</span>]) <span class="c"># =&gt; Multiset{1, 1, 2, 3}</span></code></pre>
         </div>
       
       <br/>
@@ -556,7 +561,7 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
 <p>If an <code>initial_capacity</code> is given, it will set the initial capacity
 of the internal <code>Hash</code>.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>(<span class="t">Int32</span>).<span class="k">new</span>
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>(<span class="t">Int32</span>).<span class="k">new</span>
 ms.empty <span class="c"># =&gt; true</span></code></pre>
         </div>
       
@@ -609,7 +614,7 @@ ms.empty <span class="c"># =&gt; true</span></code></pre>
 <p>For each element, new multiplicity is minimum multiplicity in either
 multiset</p>
 
-<pre><code>ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+<pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
 ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
 ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
 
@@ -635,7 +640,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
           
           <p>Scales the multiplicity of all elements by <strong>sf</strong> and returns <code>self</code>.</p>
 
-<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>} <span class="o">*</span> <span class="n">2</span> <span class="c"># =&gt; Multiset{1, 1, 2, 2, 2, 2}</span></code></pre>
+<pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>} <span class="o">*</span> <span class="n">2</span> <span class="c"># =&gt; Multiset{1, 1, 2, 2, 2, 2}</span></code></pre>
         </div>
       
       <br/>
@@ -657,7 +662,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
           <p>Returns a new multiset containing the elements from both <code>self</code> and
 <strong>other</strong>.</p>
 
-<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">+</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>} <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span>
+<pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">+</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>} <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">+</span> [<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>]         <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
         </div>
       
@@ -679,7 +684,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
           
           <p>Returns a new multiset with all elements in <strong>other</strong> removed.</p>
 
-<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">-</span> [<span class="n">1</span>, <span class="n">3</span>] <span class="c"># =&gt; Multiset{2}</span></code></pre>
+<pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">-</span> [<span class="n">1</span>, <span class="n">3</span>] <span class="c"># =&gt; Multiset{2}</span></code></pre>
         </div>
       
       <br/>
@@ -700,7 +705,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
           
           <p>Alias for <code><a href="Multiset.html#add(object:T,count:Int32)-instance-method">#add</a></code>.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&gt; Multiset{1, 2, 3, 4}</span></code></pre>
         </div>
       
@@ -763,7 +768,7 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
 <p>For each element, new multiplicity is absolute difference between
 multiplicity in either multiset.</p>
 
-<pre><code>ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+<pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
 ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
 ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
 
@@ -789,7 +794,7 @@ ms1 <span class="o">^</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1
           
           <p>Increments multiplicity of <strong>object</strong> by <strong>count</strong> and returns <code>self</code>.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.add(<span class="n">4</span>, <span class="n">2</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4, 4}</span></code></pre>
         </div>
       
@@ -811,7 +816,7 @@ ms.add(<span class="n">4</span>, <span class="n">2</span>) <span class="c"># =&g
           
           <p>Increments multiplicity of <strong>object</strong> and returns <code>self</code>.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.add(<span class="n">4</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4}</span></code></pre>
         </div>
       
@@ -833,7 +838,7 @@ ms.add(<span class="n">4</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4}</s
           
           <p>Removes all elements and returns <code>self</code>.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>}
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>}
 ms.clear
 ms.empty? <span class="c"># =&gt; true</span></code></pre>
         </div>
@@ -856,7 +861,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
           
           <p>Decrements multiplicity of <strong>object</strong> by <strong>count</strong> and returns <code>self</code>.</p>
 
-<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.delete(<span class="n">2</span>, <span class="n">1</span>) <span class="c"># =&gt; Multiset{1, 3}</span>
+<pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.delete(<span class="n">2</span>, <span class="n">1</span>) <span class="c"># =&gt; Multiset{1, 3}</span>
 <span class="t">Multiset</span>{<span class="n">4</span>, <span class="n">4</span>, <span class="n">5</span>}.delete(<span class="n">4</span>, <span class="n">2</span>) <span class="c"># =&gt; Multiset{5}</span></code></pre>
         </div>
       
@@ -878,7 +883,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
           
           <p>Decrements multiplicity of <strong>object</strong> and returns <code>self</code>.</p>
 
-<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.delete(<span class="n">2</span>) <span class="c"># =&gt; Multiset{1, 3}</span>
+<pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.delete(<span class="n">2</span>) <span class="c"># =&gt; Multiset{1, 3}</span>
 <span class="t">Multiset</span>{<span class="n">4</span>, <span class="n">4</span>, <span class="n">5</span>}.delete(<span class="n">4</span>) <span class="c"># =&gt; Multiset{4, 5}</span></code></pre>
         </div>
       
@@ -957,7 +962,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
           
           <p>Returns <code>true</code> if the multiset has no elements.</p>
 
-<pre><code><span class="t">Multiset</span>(<span class="t">Int32</span>).<span class="k">new</span>.empty? <span class="c"># =&gt; true</span>
+<pre><code class="language-crystal"><span class="t">Multiset</span>(<span class="t">Int32</span>).<span class="k">new</span>.empty? <span class="c"># =&gt; true</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.empty?   <span class="c"># =&gt; false</span></code></pre>
         </div>
       
@@ -998,7 +1003,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
           
           <p>Returns <code>true</code> if <strong>other</strong> is an element in the multiset.</p>
 
-<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="n">3</span>)   <span class="c"># =&gt; true</span>
+<pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="n">3</span>)   <span class="c"># =&gt; true</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="n">4</span>)   <span class="c"># =&gt; false</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="s">&#39;a&#39;</span>) <span class="c"># =&gt; false</span></code></pre>
         </div>
@@ -1059,7 +1064,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
           
           <p>Adds each element of <strong>elems</strong> and returns <code>self</code>.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.merge([<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>]) <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
         </div>
       
@@ -1081,7 +1086,7 @@ ms.merge([<span class="n">3</span>, <span class="n">4</span>, <span class="n">5<
           
           <p>Adds each element of <strong>other</strong> and returns <code>self</code>.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.merge(ms) <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
         </div>
       
@@ -1103,7 +1108,7 @@ ms.merge([<span class="n">3</span>, <span class="n">4</span>, <span class="n">5<
           
           <p>Returns count of <strong>object</strong> in the multiset.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>}
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>}
 ms.multiplicity(<span class="n">1</span>) <span class="c"># =&gt; 1</span>
 ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code></pre>
         </div>
@@ -1145,7 +1150,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
           
           <p>Returns <code>true</code> if the multiset is a proper subset of <strong>other</strong>.</p>
 
-<pre><code><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
+<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
         </div>
@@ -1168,7 +1173,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
           
           <p>Returns <code>true</code> if the multiset is a proper superset of <strong>other</strong>.</p>
 
-<pre><code><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
         </div>
@@ -1191,7 +1196,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
           
           <p>Returns the number of elements in the multiset.</p>
 
-<pre><code><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.size       <span class="c"># =&gt; 3</span>
+<pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.size       <span class="c"># =&gt; 3</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.size <span class="c"># =&gt; 5</span></code></pre>
         </div>
       
@@ -1213,7 +1218,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
           
           <p>Returns <code>true</code> if the multiset is a subset of <strong>other</strong>.</p>
 
-<pre><code><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
+<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
         </div>
@@ -1236,7 +1241,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
           
           <p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c"># =&gt; Multiset{2}</span></code></pre>
         </div>
       
@@ -1258,7 +1263,7 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
           
           <p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p>
 
-<pre><code>ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">3</span>}) <span class="c"># =&gt; Multiset{2}</span></code></pre>
         </div>
       
@@ -1280,7 +1285,7 @@ ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span clas
           
           <p>Returns <code>true</code> if the multiset is a superset of <strong>other</strong>.</p>
 
-<pre><code><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
         </div>
@@ -1344,7 +1349,7 @@ ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span clas
 <p>For each element, new multiplicity is maximum multiplicity in either
 multiset.</p>
 
-<pre><code>ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+<pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
 ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
 ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
 
