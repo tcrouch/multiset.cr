@@ -17,7 +17,7 @@ struct Multiset(T)
   include Enumerable(T)
   include Iterable(T)
 
-  VERSION = "0.3.0"
+  VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
 
   # Create a new empty `Multiset`.
   #

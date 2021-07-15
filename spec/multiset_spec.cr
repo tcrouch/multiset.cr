@@ -1,6 +1,10 @@
 require "./spec_helper"
 
 describe "Multiset" do
+  it "specifies a VERSION" do
+    Multiset::VERSION.should_not be_nil
+  end
+
   describe "empty set" do
     it "has size 0" do
       Multiset(Nil).new.size.should eq(0)
