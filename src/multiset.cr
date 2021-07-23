@@ -35,6 +35,9 @@ struct Multiset(T)
     )
   end
 
+  protected def initialize(*, using_hash @hash : Hash(T, Int32))
+  end
+
   # Creates a new multiset from the elements in **enumerable**.
   #
   # ```
@@ -193,9 +196,9 @@ struct Multiset(T)
     0
   end
 
-  # Returns a duplicate of `self`.
+  # Returns a new `Multiset` with the same elements.
   def dup
-    Multiset(T).new.merge(self)
+    Multiset(T).new(using_hash: @hash.dup)
   end
 
   # Returns `true` if both multisets contain the same elements.

@@ -193,6 +193,20 @@ describe "Multiset" do
       ms1.should eq Multiset{1, 2, 3, 4}
       ms2.should eq Multiset{1, 2, 3, 5}
     end
+
+    it "returns a seperate object" do
+      ms1 = Multiset{1, 2, 3}
+      ms2 = ms1.dup
+
+      ms1.should_not be ms2
+    end
+
+    it "returns a shallow copy" do
+      ms1 = Multiset{[1, 2]}
+      ms2 = ms1.dup
+
+      ms1.to_a.first.should be ms2.to_a.first
+    end
   end
 
   describe "#==" do
