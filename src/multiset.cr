@@ -47,6 +47,27 @@ struct Multiset(T)
     Multiset(T).new.merge(enumerable)
   end
 
+  # Makes this multiset compare objects using their `object_id`.
+  #
+  # ```
+  # ms = Multiset{"string"}
+  # ms.includes?("str" + "ing") # => true
+  #
+  # ms.compare_by_identity
+  # ms.includes?("str" + "ing") # => false
+  # ```
+  def compare_by_identity
+    @hash.compare_by_identity
+    self
+  end
+
+  # Returns `true` if the multiset is comparing objects by `object_id`.
+  #
+  # See `compare_by_identity`.
+  def compare_by_identity? : Bool
+    @hash.compare_by_identity?
+  end
+
   # Returns the number of elements in the multiset.
   #
   # ```

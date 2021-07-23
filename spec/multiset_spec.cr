@@ -207,6 +207,14 @@ describe "Multiset" do
 
       ms1.to_a.first.should be ms2.to_a.first
     end
+
+    it "retains compare_by_identity" do
+      ms = Multiset{1, 2, 3}
+      ms.dup.compare_by_identity?.should be_false
+
+      ms.compare_by_identity
+      ms.dup.compare_by_identity?.should be_true
+    end
   end
 
   describe "#==" do
@@ -795,6 +803,28 @@ describe "Multiset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8}
       ms1.proper_subset?(ms2).should be_true
+    end
+  end
+
+  describe "#compare_by_identity" do
+    it "compares by identity" do
+      str = "string"
+      ms = Multiset{str}
+
+      ms.compare_by_identity?.should be_false
+      ms.includes?("str" + "ing").should be_true
+      ms.includes?(str).should be_true
+
+      ms.compare_by_identity
+
+      ms.compare_by_identity?.should be_true
+      ms.includes?("str" + "ing").should be_false
+      ms.includes?(str).should be_true
+    end
+
+    it "returns self" do
+      ms = Multiset(Nil).new
+      ms.compare_by_identity.should be ms
     end
   end
 end
