@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="0.4.0">
+<meta name="generator" content="Crystal Docs 1.0.0">
+<meta name="crystal_docs.project_version" content="master">
 <meta name="crystal_docs.project_name" content="multiset">
 
 
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="multiset">
-  <title>Multiset(T) - multiset 0.4.0</title>
+  <title>Multiset(T) - multiset master</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        0.4.0
+        master
       </span>
     </div>
   </div>
@@ -137,7 +137,9 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
   </h2>
   
     
-      multiset.cr
+      <a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L16" target="_blank">
+        multiset.cr
+      </a>
     
     <br/>
   
@@ -206,14 +208,14 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#&(other:Enumerable)-instance-method" class="signature"><strong>#&</strong>(other : Enumerable)</a>
+        <a href="#&(other:Multiset)-instance-method" class="signature"><strong>#&</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns a new multiset by performing multiset intersection with <strong>other</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#&(other:Multiset)-instance-method" class="signature"><strong>#&</strong>(other : Multiset)</a>
-        
-          <div class="summary"><p>Returns a new multiset by performing multiset intersection with <strong>other</strong>.</p></div>
+        <a href="#&(other:Enumerable)-instance-method" class="signature"><strong>#&</strong>(other : Enumerable)</a>
         
       </li>
     
@@ -339,7 +341,7 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
       <li class="entry-summary">
         <a href="#includes?(object)-instance-method" class="signature"><strong>#includes?</strong>(object)</a>
         
-          <div class="summary"><p>Returns <code>true</code> if <strong>other</strong> is an element in the multiset.</p></div>
+          <div class="summary"><p>Returns <code>true</code> if <strong>object</strong> is an element in the multiset.</p></div>
         
       </li>
     
@@ -358,16 +360,16 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#merge(elems)-instance-method" class="signature"><strong>#merge</strong>(elems)</a>
+        <a href="#merge(other:Multiset(T))-instance-method" class="signature"><strong>#merge</strong>(other : Multiset(T))</a>
         
-          <div class="summary"><p>Adds each element of <strong>elems</strong> and returns <code>self</code>.</p></div>
+          <div class="summary"><p>Adds each element of <strong>other</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#merge(other:Multiset(T))-instance-method" class="signature"><strong>#merge</strong>(other : Multiset(T))</a>
+        <a href="#merge(elems)-instance-method" class="signature"><strong>#merge</strong>(elems)</a>
         
-          <div class="summary"><p>Adds each element of <strong>other</strong> and returns <code>self</code>.</p></div>
+          <div class="summary"><p>Adds each element of <strong>elems</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
@@ -414,14 +416,14 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#subtract(other:Enumerable)-instance-method" class="signature"><strong>#subtract</strong>(other : Enumerable)</a>
+        <a href="#subtract(other:Multiset)-instance-method" class="signature"><strong>#subtract</strong>(other : Multiset)</a>
         
           <div class="summary"><p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#subtract(other:Multiset)-instance-method" class="signature"><strong>#subtract</strong>(other : Multiset)</a>
+        <a href="#subtract(other:Enumerable)-instance-method" class="signature"><strong>#subtract</strong>(other : Enumerable)</a>
         
           <div class="summary"><p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p></div>
         
@@ -543,6 +545,8 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L43" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -568,6 +572,8 @@ ms.empty <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L31" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -585,21 +591,7 @@ ms.empty <span class="c"># =&gt; true</span></code></pre>
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="&(other:Enumerable)-instance-method">
-      <div class="signature">
-        
-        def <strong>&</strong>(other : Enumerable)
-
-        <a class="method-permalink" href="#&(other:Enumerable)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="&(other:Multiset)-instance-method">
+    <div class="entry-detail" id="&amp;(other:Multiset)-instance-method">
       <div class="signature">
         
         def <strong>&</strong>(other : <a href="Multiset.html">Multiset</a>)
@@ -625,6 +617,24 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L255" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&amp;(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>&</strong>(other : Enumerable)
+
+        <a class="method-permalink" href="#&(other:Enumerable)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L264" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -645,6 +655,8 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L330" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -669,6 +681,8 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L153" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -690,10 +704,12 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L238" target="_blank">View source</a>]
+        
       </div>
     </div>
   
-    <div class="entry-detail" id="<<(object:T)-instance-method">
+    <div class="entry-detail" id="&lt;&lt;(object:T)-instance-method">
       <div class="signature">
         
         def <strong><<</strong>(object : T)
@@ -711,6 +727,8 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L120" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -731,6 +749,8 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L202" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -749,6 +769,8 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L207" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -779,6 +801,8 @@ ms1 <span class="o">^</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L304" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -801,6 +825,8 @@ ms.add(<span class="n">4</span>, <span class="n">2</span>) <span class="c"># =&g
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L97" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -822,6 +848,8 @@ ms.add(<span class="n">4</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4}</s
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L109" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -846,6 +874,8 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L315" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -867,6 +897,8 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L174" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -890,6 +922,8 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L163" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -909,10 +943,12 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L197" target="_blank">View source</a>]
+        
       </div>
     </div>
   
-    <div class="entry-detail" id="each(&)-instance-method">
+    <div class="entry-detail" id="each(&amp;)-instance-method">
       <div class="signature">
         
         def <strong>each</strong>(&)
@@ -927,6 +963,8 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L79" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -946,6 +984,8 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L87" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -969,6 +1009,8 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L63" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -988,6 +1030,8 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L406" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1001,7 +1045,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       
         <div class="doc">
           
-          <p>Returns <code>true</code> if <strong>other</strong> is an element in the multiset.</p>
+          <p>Returns <code>true</code> if <strong>object</strong> is an element in the multiset.</p>
 
 <pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="n">3</span>)   <span class="c"># =&gt; true</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="n">4</span>)   <span class="c"># =&gt; false</span>
@@ -1010,6 +1054,8 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L74" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1030,6 +1076,8 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L401" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1048,6 +1096,32 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L337" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="merge(other:Multiset(T))-instance-method">
+      <div class="signature">
+        
+        def <strong>merge</strong>(other : <a href="Multiset.html">Multiset</a>(T))
+
+        <a class="method-permalink" href="#merge(other:Multiset(T))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds each element of <strong>other</strong> and returns <code>self</code>.</p>
+
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.merge(ms) <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L130" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1071,27 +1145,7 @@ ms.merge([<span class="n">3</span>, <span class="n">4</span>, <span class="n">5<
       <br/>
       <div>
         
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="merge(other:Multiset(T))-instance-method">
-      <div class="signature">
-        
-        def <strong>merge</strong>(other : <a href="Multiset.html">Multiset</a>(T))
-
-        <a class="method-permalink" href="#merge(other:Multiset(T))-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Adds each element of <strong>other</strong> and returns <code>self</code>.</p>
-
-<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
-<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.merge(ms) <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L141" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1116,6 +1170,8 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L187" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1134,6 +1190,8 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L192" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1158,6 +1216,8 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L388" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1181,6 +1241,8 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L364" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1202,6 +1264,8 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1226,27 +1290,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="subtract(other:Enumerable)-instance-method">
-      <div class="signature">
-        
-        def <strong>subtract</strong>(other : Enumerable)
-
-        <a class="method-permalink" href="#subtract(other:Enumerable)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p>
-
-<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
-ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c"># =&gt; Multiset{2}</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L376" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1269,6 +1313,32 @@ ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span clas
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L217" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subtract(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>subtract</strong>(other : Enumerable)
+
+        <a class="method-permalink" href="#subtract(other:Enumerable)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p>
+
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
+ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c"># =&gt; Multiset{2}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L228" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1293,6 +1363,8 @@ ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span clas
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L352" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1312,6 +1384,8 @@ ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span clas
       <br/>
       <div>
         
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L394" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1330,6 +1404,8 @@ ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span clas
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L321" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1359,6 +1435,8 @@ ms1 <span class="o">|</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/2e2bd94f9af5434b4e4ce5edbca0bb106f196fa3/src/multiset.cr#L287" target="_blank">View source</a>]
         
       </div>
     </div>
