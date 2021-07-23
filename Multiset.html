@@ -137,7 +137,7 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
   </h2>
   
     
-      <a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L16" target="_blank">
+      <a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L16" target="_blank">
         multiset.cr
       </a>
     
@@ -286,6 +286,20 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
         <a href="#clear-instance-method" class="signature"><strong>#clear</strong></a>
         
           <div class="summary"><p>Removes all elements and returns <code>self</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#compare_by_identity-instance-method" class="signature"><strong>#compare_by_identity</strong></a>
+        
+          <div class="summary"><p>Makes this multiset compare objects using their <code>object_id</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#compare_by_identity?:Bool-instance-method" class="signature"><strong>#compare_by_identity?</strong> : Bool</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset is comparing objects by <code>object_id</code>.</p></div>
         
       </li>
     
@@ -545,7 +559,7 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L46" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L46" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -572,7 +586,7 @@ ms.empty <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -617,7 +631,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L258" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L279" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -633,7 +647,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L267" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L288" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -656,7 +670,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L333" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L354" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -681,7 +695,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L156" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L177" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -704,7 +718,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L241" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L262" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -728,7 +742,7 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L123" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L144" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -749,7 +763,7 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L205" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L226" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -770,7 +784,7 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L210" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L231" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -801,7 +815,7 @@ ms1 <span class="o">^</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L307" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L328" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -825,7 +839,7 @@ ms.add(<span class="n">4</span>, <span class="n">2</span>) <span class="c"># =&g
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L100" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L121" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -849,7 +863,7 @@ ms.add(<span class="n">4</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4}</s
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L112" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L133" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -874,7 +888,57 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L318" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L339" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="compare_by_identity-instance-method">
+      <div class="signature">
+        
+        def <strong>compare_by_identity</strong>
+
+        <a class="method-permalink" href="#compare_by_identity-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Makes this multiset compare objects using their <code>object_id</code>.</p>
+
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&quot;string&quot;</span>}
+ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <span class="s">&quot;ing&quot;</span>) <span class="c"># =&gt; true</span>
+
+ms.compare_by_identity
+ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <span class="s">&quot;ing&quot;</span>) <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L59" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="compare_by_identity?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>compare_by_identity?</strong> : Bool
+
+        <a class="method-permalink" href="#compare_by_identity?:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset is comparing objects by <code>object_id</code>.</p>
+
+<p>See <code><a href="Multiset.html#compare_by_identity-instance-method">#compare_by_identity</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L67" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -898,7 +962,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L177" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L198" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -922,7 +986,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L166" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L187" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -943,7 +1007,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L200" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L221" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -964,7 +1028,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L82" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L103" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -985,7 +1049,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L90" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L111" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1009,7 +1073,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L66" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L87" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1030,7 +1094,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L409" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L430" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1055,7 +1119,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L77" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L98" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1076,7 +1140,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L404" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L425" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1097,7 +1161,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L340" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L361" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1121,7 +1185,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L133" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L154" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1145,7 +1209,7 @@ ms.merge([<span class="n">3</span>, <span class="n">4</span>, <span class="n">5<
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L144" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L165" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1170,7 +1234,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L190" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L211" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1191,7 +1255,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L195" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L216" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1216,7 +1280,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L391" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L412" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1241,7 +1305,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L367" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L388" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1265,7 +1329,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L56" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L77" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1290,7 +1354,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L379" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L400" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1314,7 +1378,7 @@ ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span clas
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L220" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L241" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1338,7 +1402,7 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L231" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L252" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1363,7 +1427,7 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L355" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L376" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1384,7 +1448,7 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L397" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L418" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1405,7 +1469,7 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L324" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L345" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1436,7 +1500,7 @@ ms1 <span class="o">|</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/06345456d5472d0bc7b8cd7ff556fab9b029fe24/src/multiset.cr#L290" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L311" target="_blank">View source</a>]
         
       </div>
     </div>
