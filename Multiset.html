@@ -95,8 +95,8 @@ ms1 <span class="o">==</span> ms2          <span class="c"># =&gt; true</span>
 ms1.add(<span class="n">2</span>)          <span class="c"># =&gt; Multiset{1, 2, 2}</span>
 ms1.merge([<span class="n">2</span>, <span class="n">6</span>])   <span class="c"># =&gt; Multiset{1, 2, 2, 2, 6}</span>
 ms1.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 3</span>
-ms1.subset? ms2     <span class="c"># =&gt; false</span>
-ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
+ms1.subset_of? ms2  <span class="c"># =&gt; false</span>
+ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
 
 
 
@@ -137,7 +137,7 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
   </h2>
   
     
-      <a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L16" target="_blank">
+      <a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L16" target="_blank">
         multiset.cr
       </a>
     
@@ -404,12 +404,34 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
       <li class="entry-summary">
         <a href="#proper_subset?(other:Multiset)-instance-method" class="signature"><strong>#proper_subset?</strong>(other : Multiset)</a>
         
+          <div class="summary"><p>Returns <code>true</code> if the multiset is a proper subset of <strong>other</strong>.</p>
+
+<p><span class="flag red">DEPRECATED</span>  Use #proper_subset_of? instead.</p>
+
+</div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#proper_subset_of?(other:Multiset):Bool-instance-method" class="signature"><strong>#proper_subset_of?</strong>(other : Multiset) : Bool</a>
+        
           <div class="summary"><p>Returns <code>true</code> if the multiset is a proper subset of <strong>other</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#proper_superset?(other:Multiset)-instance-method" class="signature"><strong>#proper_superset?</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset is a proper superset of <strong>other</strong>.</p>
+
+<p><span class="flag red">DEPRECATED</span>  Use #proper_superset_of? instead.</p>
+
+</div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#proper_superset_of?(other:Multiset):Bool-instance-method" class="signature"><strong>#proper_superset_of?</strong>(other : Multiset) : Bool</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a proper superset of <strong>other</strong>.</p></div>
         
@@ -424,6 +446,17 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
     
       <li class="entry-summary">
         <a href="#subset?(other:Multiset)-instance-method" class="signature"><strong>#subset?</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset is a subset of <strong>other</strong>.</p>
+
+<p><span class="flag red">DEPRECATED</span>  Use #subset_of? instead.</p>
+
+</div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subset_of?(other:Multiset):Bool-instance-method" class="signature"><strong>#subset_of?</strong>(other : Multiset) : Bool</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a subset of <strong>other</strong>.</p></div>
         
@@ -445,6 +478,17 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
     
       <li class="entry-summary">
         <a href="#superset?(other:Multiset)-instance-method" class="signature"><strong>#superset?</strong>(other : Multiset)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the multiset is a superset of <strong>other</strong>.</p>
+
+<p><span class="flag red">DEPRECATED</span>  Use #superset_of? instead.</p>
+
+</div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#superset_of?(other:Multiset):Bool-instance-method" class="signature"><strong>#superset_of?</strong>(other : Multiset) : Bool</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a superset of <strong>other</strong>.</p></div>
         
@@ -559,7 +603,7 @@ ms2.subset? ms1     <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L46" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L46" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -586,7 +630,7 @@ ms.empty <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -631,7 +675,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L279" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L279" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -647,7 +691,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L288" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L288" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -670,7 +714,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L354" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L354" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -695,7 +739,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L177" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L177" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -718,7 +762,7 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L262" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L262" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -742,7 +786,7 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L144" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L144" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -763,7 +807,7 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L226" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L226" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -784,7 +828,7 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L231" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L231" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -815,7 +859,7 @@ ms1 <span class="o">^</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L328" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L328" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -839,7 +883,7 @@ ms.add(<span class="n">4</span>, <span class="n">2</span>) <span class="c"># =&g
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L121" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L121" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -863,7 +907,7 @@ ms.add(<span class="n">4</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4}</s
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L133" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L133" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -888,7 +932,7 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L339" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L339" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -915,7 +959,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L59" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L59" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -938,7 +982,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L67" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L67" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -962,7 +1006,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L198" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L198" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -986,7 +1030,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L187" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L187" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1007,7 +1051,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L221" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L221" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1028,7 +1072,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L103" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L103" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1049,7 +1093,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L111" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L111" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1073,7 +1117,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L87" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L87" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1094,7 +1138,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L430" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L454" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1119,7 +1163,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L98" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L98" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1140,7 +1184,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L425" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L449" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1161,7 +1205,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L361" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L361" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1185,7 +1229,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L154" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L154" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1209,7 +1253,7 @@ ms.merge([<span class="n">3</span>, <span class="n">4</span>, <span class="n">5<
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L165" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L165" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1234,7 +1278,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L211" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L211" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1255,7 +1299,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L216" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L216" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1272,15 +1316,40 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
           
           <p>Returns <code>true</code> if the multiset is a proper subset of <strong>other</strong>.</p>
 
-<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
-<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
-<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
+<p><span class="flag red">DEPRECATED</span>  Use #proper_subset_of? instead.</p>
+
+
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L412" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L437" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="proper_subset_of?(other:Multiset):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>proper_subset_of?</strong>(other : <a href="Multiset.html">Multiset</a>) : Bool
+
+        <a class="method-permalink" href="#proper_subset_of?(other:Multiset):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset is a proper subset of <strong>other</strong>.</p>
+
+<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L430" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1297,15 +1366,40 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
           
           <p>Returns <code>true</code> if the multiset is a proper superset of <strong>other</strong>.</p>
 
-<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
-<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
-<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
+<p><span class="flag red">DEPRECATED</span>  Use #proper_superset_of? instead.</p>
+
+
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L388" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L401" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="proper_superset_of?(other:Multiset):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>proper_superset_of?</strong>(other : <a href="Multiset.html">Multiset</a>) : Bool
+
+        <a class="method-permalink" href="#proper_superset_of?(other:Multiset):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset is a proper superset of <strong>other</strong>.</p>
+
+<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.proper_superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.proper_superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L394" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1329,7 +1423,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L77" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L77" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1346,15 +1440,40 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
           
           <p>Returns <code>true</code> if the multiset is a subset of <strong>other</strong>.</p>
 
-<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
-<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
-<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
+<p><span class="flag red">DEPRECATED</span>  Use #subset_of? instead.</p>
+
+
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L400" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L419" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subset_of?(other:Multiset):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>subset_of?</strong>(other : <a href="Multiset.html">Multiset</a>) : Bool
+
+        <a class="method-permalink" href="#subset_of?(other:Multiset):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset is a subset of <strong>other</strong>.</p>
+
+<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L412" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1378,7 +1497,7 @@ ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span clas
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L241" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L241" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1402,7 +1521,7 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L252" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L252" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1419,15 +1538,40 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
           
           <p>Returns <code>true</code> if the multiset is a superset of <strong>other</strong>.</p>
 
-<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
-<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
-<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.superset? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
+<p><span class="flag red">DEPRECATED</span>  Use #superset_of? instead.</p>
+
+
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L376" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L383" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="superset_of?(other:Multiset):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>superset_of?</strong>(other : <a href="Multiset.html">Multiset</a>) : Bool
+
+        <a class="method-permalink" href="#superset_of?(other:Multiset):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the multiset is a superset of <strong>other</strong>.</p>
+
+<pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
+<span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L376" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1448,7 +1592,7 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L418" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L442" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1469,7 +1613,7 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L345" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L345" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1500,7 +1644,7 @@ ms1 <span class="o">|</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/5c3f579fcc9e17c57be8562a9d3e7f0158c0977f/src/multiset.cr#L311" target="_blank">View source</a>]
+          [<a href="https://github.com/tcrouch/multiset.cr/blob/e6b63be4fe04dd6a98fcda0dc86c5bd69af27e0d/src/multiset.cr#L311" target="_blank">View source</a>]
         
       </div>
     </div>

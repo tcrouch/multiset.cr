@@ -98,7 +98,7 @@ ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</
 ms1 <span class="o">&lt;&lt;</span> <span class="n">2</span>                          <span class="c"># =&gt; Multiset{1, 1, 2}</span>
 ms1.merge [<span class="n">3</span>, <span class="n">4</span>]                  <span class="c"># =&gt; Multiset{1, 1, 2, 3, 4}</span>
 ms2 <span class="o">=</span> <span class="t">Multiset</span>.<span class="k">new</span> [<span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>]
-ms2.subset?(ms1)                  <span class="c"># =&gt; true</span>
+ms2.subset_of?(ms1)               <span class="c"># =&gt; true</span>
 ms1 <span class="o">&amp;</span> ms2                         <span class="c"># =&gt; Multiset{2, 3, 4}</span></code></pre>
 
 <h2><a id="development" class="anchor" href="#development">
