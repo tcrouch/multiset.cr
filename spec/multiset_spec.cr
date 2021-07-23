@@ -726,83 +726,83 @@ describe "Multiset" do
     end
   end
 
-  describe "#superset?" do
+  describe "#superset_of?" do
     it "returns true given an equal multiset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = ms1.dup
-      ms1.superset?(ms2).should be_true
+      ms1.superset_of?(ms2).should be_true
     end
 
     it "returns true given a subset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = Multiset{1, 2, 2, 3, 4, 6, 7}
-      ms1.superset?(ms2).should be_true
+      ms1.superset_of?(ms2).should be_true
     end
 
     it "returns false given a superset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8}
-      ms1.superset?(ms2).should be_false
+      ms1.superset_of?(ms2).should be_false
     end
   end
 
-  describe "proper_superset?" do
+  describe "proper_superset_of?" do
     it "returns false given an equal multiset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = ms1.dup
-      ms1.proper_superset?(ms2).should be_false
+      ms1.proper_superset_of?(ms2).should be_false
     end
 
     it "returns true given a subset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = Multiset{1, 2, 2, 3, 4, 6, 7}
-      ms1.proper_superset?(ms2).should be_true
+      ms1.proper_superset_of?(ms2).should be_true
     end
 
     it "returns false given a superset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8}
-      ms1.proper_superset?(ms2).should be_false
+      ms1.proper_superset_of?(ms2).should be_false
     end
   end
 
-  describe "#subset?" do
+  describe "#subset_of?" do
     it "returns true given an equal multiset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = ms1.dup
-      ms1.subset?(ms2).should be_true
+      ms1.subset_of?(ms2).should be_true
     end
 
     it "returns false given a subset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = Multiset{1, 2, 2, 3, 4, 6, 7}
-      ms1.subset?(ms2).should be_false
+      ms1.subset_of?(ms2).should be_false
     end
 
     it "returns true given a superset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8}
-      ms1.subset?(ms2).should be_true
+      ms1.subset_of?(ms2).should be_true
     end
   end
 
-  describe "#proper_subset?" do
+  describe "#proper_subset_of?" do
     it "returns false given an equal multiset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = ms1.dup
-      ms1.proper_subset?(ms2).should be_false
+      ms1.proper_subset_of?(ms2).should be_false
     end
 
     it "returns false given a subset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = Multiset{1, 2, 2, 3, 4, 6, 7}
-      ms1.proper_subset?(ms2).should be_false
+      ms1.proper_subset_of?(ms2).should be_false
     end
 
     it "returns true given a superset" do
       ms1 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7}
       ms2 = Multiset{1, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8}
-      ms1.proper_subset?(ms2).should be_true
+      ms1.proper_subset_of?(ms2).should be_true
     end
   end
 

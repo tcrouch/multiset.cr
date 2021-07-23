@@ -24,7 +24,7 @@ ms1 = Multiset{1, 1}
 ms1 << 2                          # => Multiset{1, 1, 2}
 ms1.merge [3, 4]                  # => Multiset{1, 1, 2, 3, 4}
 ms2 = Multiset.new [2, 3, 4]
-ms2.subset?(ms1)                  # => true
+ms2.subset_of?(ms1)               # => true
 ms1 & ms2                         # => Multiset{2, 3, 4}
 ```
 

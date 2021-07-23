@@ -10,8 +10,8 @@
 # ms1.add(2)          # => Multiset{1, 2, 2}
 # ms1.merge([2, 6])   # => Multiset{1, 2, 2, 2, 6}
 # ms1.multiplicity(2) # => 3
-# ms1.subset? ms2     # => false
-# ms2.subset? ms1     # => true
+# ms1.subset_of? ms2  # => false
+# ms2.subset_of? ms1  # => true
 # ```
 struct Multiset(T)
   include Enumerable(T)
@@ -369,49 +369,73 @@ struct Multiset(T)
   # Returns `true` if the multiset is a superset of **other**.
   #
   # ```
-  # Mutiset{1, 2, 3}.superset? Multiset{1, 2} # => true
-  # Mutiset{1, 1, 2}.superset? Multiset{1, 2} # => true
-  # Mutiset{1, 2}.superset? Multiset{1, 2}    # => true
+  # Mutiset{1, 2, 3}.superset_of? Multiset{1, 2} # => true
+  # Mutiset{1, 1, 2}.superset_of? Multiset{1, 2} # => true
+  # Mutiset{1, 2}.superset_of? Multiset{1, 2}    # => true
   # ```
-  def superset?(other : Multiset)
+  def superset_of?(other : Multiset) : Bool
     return false if size < other.size
     other.all? { |o| multiplicity(o) >= other.multiplicity(o) }
+  end
+
+  # Returns `true` if the multiset is a superset of **other**.
+  @[Deprecated("Use #superset_of? instead.")]
+  def superset?(other : Multiset)
+    superset_of?(other)
   end
 
   # Returns `true` if the multiset is a proper superset of **other**.
   #
   # ```
-  # Mutiset{1, 2, 3}.proper_superset? Multiset{1, 2} # => true
-  # Mutiset{1, 1, 2}.proper_superset? Multiset{1, 2} # => true
-  # Mutiset{1, 2}.proper_superset? Multiset{1, 2}    # => false
+  # Mutiset{1, 2, 3}.proper_superset_of? Multiset{1, 2} # => true
+  # Mutiset{1, 1, 2}.proper_superset_of? Multiset{1, 2} # => true
+  # Mutiset{1, 2}.proper_superset_of? Multiset{1, 2}    # => false
   # ```
-  def proper_superset?(other : Multiset)
+  def proper_superset_of?(other : Multiset) : Bool
     return false if size <= other.size
     other.all? { |o| multiplicity(o) >= other.multiplicity(o) }
+  end
+
+  # Returns `true` if the multiset is a proper superset of **other**.
+  @[Deprecated("Use #proper_superset_of? instead.")]
+  def proper_superset?(other : Multiset)
+    proper_superset_of?(other)
   end
 
   # Returns `true` if the multiset is a subset of **other**.
   #
   # ```
-  # Mutiset{1, 2}.subset? Multiset{1, 2, 3} # => true
-  # Mutiset{1, 2}.subset? Multiset{1, 1, 2} # => true
-  # Mutiset{1, 2}.subset? Multiset{1, 2}    # => true
+  # Mutiset{1, 2}.subset_of? Multiset{1, 2, 3} # => true
+  # Mutiset{1, 2}.subset_of? Multiset{1, 1, 2} # => true
+  # Mutiset{1, 2}.subset_of? Multiset{1, 2}    # => true
   # ```
-  def subset?(other : Multiset)
+  def subset_of?(other : Multiset) : Bool
     return false if size > other.size
     all? { |o| multiplicity(o) <= other.multiplicity(o) }
+  end
+
+  # Returns `true` if the multiset is a subset of **other**.
+  @[Deprecated("Use #subset_of? instead.")]
+  def subset?(other : Multiset)
+    subset_of?(other)
   end
 
   # Returns `true` if the multiset is a proper subset of **other**.
   #
   # ```
-  # Mutiset{1, 2}.proper_subset? Multiset{1, 2, 3} # => true
-  # Mutiset{1, 2}.proper_subset? Multiset{1, 1, 2} # => true
-  # Mutiset{1, 2}.proper_subset? Multiset{1, 2}    # => false
+  # Mutiset{1, 2}.proper_subset_of? Multiset{1, 2, 3} # => true
+  # Mutiset{1, 2}.proper_subset_of? Multiset{1, 1, 2} # => true
+  # Mutiset{1, 2}.proper_subset_of? Multiset{1, 2}    # => false
   # ```
-  def proper_subset?(other : Multiset)
+  def proper_subset_of?(other : Multiset) : Bool
     return false if size >= other.size
     all? { |o| multiplicity(o) <= other.multiplicity(o) }
+  end
+
+  # Returns `true` if the multiset is a proper subset of **other**.
+  @[Deprecated("Use #proper_subset_of? instead.")]
+  def proper_subset?(other : Multiset)
+    proper_subset_of?(other)
   end
 
   # Writes a string representation of the multiset to **io**.
