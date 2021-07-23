@@ -64,7 +64,7 @@ struct Multiset(T)
     @hash.empty?
   end
 
-  # Returns `true` if **other** is an element in the multiset.
+  # Returns `true` if **object** is an element in the multiset.
   #
   # ```
   # Multiset{1, 2, 3}.includes?(3)   # => true
