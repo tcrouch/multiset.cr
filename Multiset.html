@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 1.0.0">
-<meta name="crystal_docs.project_version" content="master">
+<meta name="generator" content="Crystal Docs 1.5.0">
+<meta name="crystal_docs.project_version" content="0.5.0">
 <meta name="crystal_docs.project_name" content="multiset">
 
 
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="multiset">
-  <title>Multiset(T) - multiset master</title>
+  <title>Multiset(T) - multiset 0.5.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        master
+        0.5.0
       </span>
     </div>
   </div>
@@ -86,10 +86,8 @@
 
   <p>A <code><a href="Multiset.html">Multiset</a></code> (or <strong>bag</strong>) is a collection of unordered elements that is
 similar to a set, but allows duplicate values.</p>
-
 <p>Multiset uses <code>Hash</code> as storage.</p>
-
-<pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>.<span class="k">new</span> [<span class="n">1</span>, <span class="n">2</span>]
+<pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>.new [<span class="n">1</span>, <span class="n">2</span>]
 ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">2</span>, <span class="n">1</span>}
 ms1 <span class="o">==</span> ms2          <span class="c"># =&gt; true</span>
 ms1.add(<span class="n">2</span>)          <span class="c"># =&gt; Multiset{1, 2, 2}</span>
@@ -137,9 +135,7 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
   </h2>
   
     
-      <a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L16" target="_blank">
-        multiset.cr
-      </a>
+      multiset.cr
     
     <br/>
   
@@ -159,7 +155,7 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
   <dl>
     
       <dt class="entry-const" id="VERSION">
-        <strong>VERSION</strong> = <code>{{ (<span class="s">`shards version /__w/multiset.cr/multiset.cr/src`</span>).chomp.stringify }}</code>
+        <strong>VERSION</strong> = <code><span class="o">{{</span> (<span class="s">`shards version /__w/multiset.cr/multiset.cr/src`</span>).chomp.stringify }}</code>
       </dt>
       
     
@@ -178,14 +174,14 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(enumerable:Enumerable(T))-class-method" class="signature"><strong>.new</strong>(enumerable : Enumerable(T))</a>
+        <a href="#new%28enumerable%3AEnumerable%28T%29%29-class-method" class="signature"><strong>.new</strong>(enumerable : Enumerable(T))</a>
         
           <div class="summary"><p>Creates a new multiset from the elements in <strong>enumerable</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(initial_capacity=nil)-class-method" class="signature"><strong>.new</strong>(initial_capacity = <span class="n">nil</span>)</a>
+        <a href="#new%28initial_capacity%3Dnil%29-class-method" class="signature"><strong>.new</strong>(initial_capacity = <span class="n">nil</span>)</a>
         
           <div class="summary"><p>Create a new empty <code><a href="Multiset.html">Multiset</a></code>.</p></div>
         
@@ -208,75 +204,82 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#&(other:Multiset)-instance-method" class="signature"><strong>#&</strong>(other : Multiset)</a>
+        <a href="#%26%28other%3AMultiset%29-instance-method" class="signature"><strong>#&</strong>(other : Multiset)</a>
         
           <div class="summary"><p>Returns a new multiset by performing multiset intersection with <strong>other</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#&(other:Enumerable)-instance-method" class="signature"><strong>#&</strong>(other : Enumerable)</a>
+        <a href="#%26%28other%3AEnumerable%29-instance-method" class="signature"><strong>#&</strong>(other : Enumerable)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#*(sf:Int32)-instance-method" class="signature"><strong>#*</strong>(sf : Int32)</a>
+        <a href="#%2A%28sf%3AInt32%29-instance-method" class="signature"><strong>#*</strong>(sf : Int32)</a>
         
           <div class="summary"><p>Scales the multiplicity of all elements by <strong>sf</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#+(other)-instance-method" class="signature"><strong>#+</strong>(other)</a>
+        <a href="#%2B%28other%29-instance-method" class="signature"><strong>#+</strong>(other)</a>
         
           <div class="summary"><p>Returns a new multiset containing the elements from both <code>self</code> and <strong>other</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#-(other:Enumerable)-instance-method" class="signature"><strong>#-</strong>(other : Enumerable)</a>
+        <a href="#-%28other%3AEnumerable%29-instance-method" class="signature"><strong>#-</strong>(other : Enumerable)</a>
         
           <div class="summary"><p>Returns a new multiset with all elements in <strong>other</strong> removed.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#%3C%3C(object:T)-instance-method" class="signature"><strong>#<<</strong>(object : T)</a>
+        <a href="#%3C%3C%28object%3AT%29-instance-method" class="signature"><strong>#<<</strong>(object : T)</a>
         
-          <div class="summary"><p>Alias for <code><a href="Multiset.html#add(object:T,count:Int32)-instance-method">#add</a></code>.</p></div>
+          <div class="summary"><p>Alias for <code><a href="Multiset.html#add%28object%3AT%2Ccount%3AInt32%29-instance-method">#add</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#==(other:Multiset)-instance-method" class="signature"><strong>#==</strong>(other : Multiset)</a>
+        <a href="#%3D%3D%28other%3AMultiset%29-instance-method" class="signature"><strong>#==</strong>(other : Multiset)</a>
         
           <div class="summary"><p>Returns <code>true</code> if both multisets contain the same elements.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#==(other:Set)-instance-method" class="signature"><strong>#==</strong>(other : Set)</a>
+        <a href="#%3D%3D%28other%3ASet%29-instance-method" class="signature"><strong>#==</strong>(other : Set)</a>
         
           <div class="summary"><p>Returns <code>true</code> if both sets contain the same elements.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#%5E(other:Enumerable)-instance-method" class="signature"><strong>#^</strong>(other : Enumerable)</a>
+        <a href="#%5E%28other%3AEnumerable%29-instance-method" class="signature"><strong>#^</strong>(other : Enumerable)</a>
         
           <div class="summary"><p>Returns a new multiset by performing symmetric difference with <strong>other</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#add(object:T,count:Int32)-instance-method" class="signature"><strong>#add</strong>(object : T, count : Int32)</a>
+        <a href="#%7C%28other%3AEnumerable%29-instance-method" class="signature"><strong>#|</strong>(other : Enumerable)</a>
+        
+          <div class="summary"><p>Returns a new multiset by performing mutiset union with <strong>other</strong>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add%28object%3AT%2Ccount%3AInt32%29-instance-method" class="signature"><strong>#add</strong>(object : T, count : Int32)</a>
         
           <div class="summary"><p>Increments multiplicity of <strong>object</strong> by <strong>count</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#add(object:T)-instance-method" class="signature"><strong>#add</strong>(object : T)</a>
+        <a href="#add%28object%3AT%29-instance-method" class="signature"><strong>#add</strong>(object : T)</a>
         
           <div class="summary"><p>Increments multiplicity of <strong>object</strong> and returns <code>self</code>.</p></div>
         
@@ -297,21 +300,21 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#compare_by_identity?:Bool-instance-method" class="signature"><strong>#compare_by_identity?</strong> : Bool</a>
+        <a href="#compare_by_identity%3F%3ABool-instance-method" class="signature"><strong>#compare_by_identity?</strong> : Bool</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is comparing objects by <code>object_id</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#delete(object,count:Int32)-instance-method" class="signature"><strong>#delete</strong>(object, count : Int32)</a>
+        <a href="#delete%28object%2Ccount%3AInt32%29-instance-method" class="signature"><strong>#delete</strong>(object, count : Int32)</a>
         
           <div class="summary"><p>Decrements multiplicity of <strong>object</strong> by <strong>count</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#delete(object)-instance-method" class="signature"><strong>#delete</strong>(object)</a>
+        <a href="#delete%28object%29-instance-method" class="signature"><strong>#delete</strong>(object)</a>
         
           <div class="summary"><p>Decrements multiplicity of <strong>object</strong> and returns <code>self</code>.</p></div>
         
@@ -325,7 +328,7 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#each(&)-instance-method" class="signature"><strong>#each</strong>(&)</a>
+        <a href="#each%28%26%29-instance-method" class="signature"><strong>#each</strong>(&)</a>
         
           <div class="summary"><p>Yields each element of the multiset, and returns <code>self</code>.</p></div>
         
@@ -339,99 +342,93 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#empty?-instance-method" class="signature"><strong>#empty?</strong></a>
+        <a href="#empty%3F-instance-method" class="signature"><strong>#empty?</strong></a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset has no elements.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#hash(hasher)-instance-method" class="signature"><strong>#hash</strong>(hasher)</a>
+        <a href="#hash%28hasher%29-instance-method" class="signature"><strong>#hash</strong>(hasher)</a>
         
           <div class="summary"><p>See <code>Object#hash(hasher)</code></p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#includes?(object)-instance-method" class="signature"><strong>#includes?</strong>(object)</a>
+        <a href="#includes%3F%28object%29-instance-method" class="signature"><strong>#includes?</strong>(object)</a>
         
           <div class="summary"><p>Returns <code>true</code> if <strong>object</strong> is an element in the multiset.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#inspect(io:IO):Nil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
+        <a href="#inspect%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
         
-          <div class="summary"><p>Alias of <code><a href="Multiset.html#to_s(io:IO):Nil-instance-method">#to_s</a></code>.</p></div>
+          <div class="summary"><p>Alias of <code><a href="Multiset.html#to_s%28io%3AIO%29%3ANil-instance-method">#to_s</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#intersects?(other:Multiset)-instance-method" class="signature"><strong>#intersects?</strong>(other : Multiset)</a>
+        <a href="#intersects%3F%28other%3AMultiset%29-instance-method" class="signature"><strong>#intersects?</strong>(other : Multiset)</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset has any element in common with <strong>other</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#merge(other:Multiset(T))-instance-method" class="signature"><strong>#merge</strong>(other : Multiset(T))</a>
+        <a href="#merge%28other%3AMultiset%28T%29%29-instance-method" class="signature"><strong>#merge</strong>(other : Multiset(T))</a>
         
           <div class="summary"><p>Adds each element of <strong>other</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#merge(elems)-instance-method" class="signature"><strong>#merge</strong>(elems)</a>
+        <a href="#merge%28elems%29-instance-method" class="signature"><strong>#merge</strong>(elems)</a>
         
           <div class="summary"><p>Adds each element of <strong>elems</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#multiplicity(object:T)-instance-method" class="signature"><strong>#multiplicity</strong>(object : T)</a>
+        <a href="#multiplicity%28object%3AT%29-instance-method" class="signature"><strong>#multiplicity</strong>(object : T)</a>
         
           <div class="summary"><p>Returns count of <strong>object</strong> in the multiset.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#multiplicity(object:U)forallU-instance-method" class="signature"><strong>#multiplicity</strong>(object : U) forall U</a>
+        <a href="#multiplicity%28object%3AU%29forallU-instance-method" class="signature"><strong>#multiplicity</strong>(object : U) forall U</a>
         
           <div class="summary"><p>Returns <code>0</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#proper_subset?(other:Multiset)-instance-method" class="signature"><strong>#proper_subset?</strong>(other : Multiset)</a>
+        <a href="#proper_subset%3F%28other%3AMultiset%29-instance-method" class="signature"><strong>#proper_subset?</strong>(other : Multiset)</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a proper subset of <strong>other</strong>.</p>
-
-<p><span class="flag red">DEPRECATED</span>  Use #proper_subset_of? instead.</p>
-
-</div>
+<p><span class="flag red">DEPRECATED</span>  Use #proper_subset_of? instead.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#proper_subset_of?(other:Multiset):Bool-instance-method" class="signature"><strong>#proper_subset_of?</strong>(other : Multiset) : Bool</a>
+        <a href="#proper_subset_of%3F%28other%3AMultiset%29%3ABool-instance-method" class="signature"><strong>#proper_subset_of?</strong>(other : Multiset) : Bool</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a proper subset of <strong>other</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#proper_superset?(other:Multiset)-instance-method" class="signature"><strong>#proper_superset?</strong>(other : Multiset)</a>
+        <a href="#proper_superset%3F%28other%3AMultiset%29-instance-method" class="signature"><strong>#proper_superset?</strong>(other : Multiset)</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a proper superset of <strong>other</strong>.</p>
-
-<p><span class="flag red">DEPRECATED</span>  Use #proper_superset_of? instead.</p>
-
-</div>
+<p><span class="flag red">DEPRECATED</span>  Use #proper_superset_of? instead.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#proper_superset_of?(other:Multiset):Bool-instance-method" class="signature"><strong>#proper_superset_of?</strong>(other : Multiset) : Bool</a>
+        <a href="#proper_superset_of%3F%28other%3AMultiset%29%3ABool-instance-method" class="signature"><strong>#proper_superset_of?</strong>(other : Multiset) : Bool</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a proper superset of <strong>other</strong>.</p></div>
         
@@ -445,57 +442,51 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#subset?(other:Multiset)-instance-method" class="signature"><strong>#subset?</strong>(other : Multiset)</a>
+        <a href="#subset%3F%28other%3AMultiset%29-instance-method" class="signature"><strong>#subset?</strong>(other : Multiset)</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a subset of <strong>other</strong>.</p>
-
-<p><span class="flag red">DEPRECATED</span>  Use #subset_of? instead.</p>
-
-</div>
+<p><span class="flag red">DEPRECATED</span>  Use #subset_of? instead.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#subset_of?(other:Multiset):Bool-instance-method" class="signature"><strong>#subset_of?</strong>(other : Multiset) : Bool</a>
+        <a href="#subset_of%3F%28other%3AMultiset%29%3ABool-instance-method" class="signature"><strong>#subset_of?</strong>(other : Multiset) : Bool</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a subset of <strong>other</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#subtract(other:Multiset)-instance-method" class="signature"><strong>#subtract</strong>(other : Multiset)</a>
+        <a href="#subtract%28other%3AMultiset%29-instance-method" class="signature"><strong>#subtract</strong>(other : Multiset)</a>
         
           <div class="summary"><p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#subtract(other:Enumerable)-instance-method" class="signature"><strong>#subtract</strong>(other : Enumerable)</a>
+        <a href="#subtract%28other%3AEnumerable%29-instance-method" class="signature"><strong>#subtract</strong>(other : Enumerable)</a>
         
           <div class="summary"><p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#superset?(other:Multiset)-instance-method" class="signature"><strong>#superset?</strong>(other : Multiset)</a>
+        <a href="#superset%3F%28other%3AMultiset%29-instance-method" class="signature"><strong>#superset?</strong>(other : Multiset)</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a superset of <strong>other</strong>.</p>
-
-<p><span class="flag red">DEPRECATED</span>  Use #superset_of? instead.</p>
-
-</div>
+<p><span class="flag red">DEPRECATED</span>  Use #superset_of? instead.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#superset_of?(other:Multiset):Bool-instance-method" class="signature"><strong>#superset_of?</strong>(other : Multiset) : Bool</a>
+        <a href="#superset_of%3F%28other%3AMultiset%29%3ABool-instance-method" class="signature"><strong>#superset_of?</strong>(other : Multiset) : Bool</a>
         
           <div class="summary"><p>Returns <code>true</code> if the multiset is a superset of <strong>other</strong>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#to_s(io:IO):Nil-instance-method" class="signature"><strong>#to_s</strong>(io : IO) : Nil</a>
+        <a href="#to_s%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#to_s</strong>(io : IO) : Nil</a>
         
           <div class="summary"><p>Writes a string representation of the multiset to <strong>io</strong>.</p></div>
         
@@ -505,13 +496,6 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
         <a href="#uniq-instance-method" class="signature"><strong>#uniq</strong></a>
         
           <div class="summary"><p>Returns an <code>Array</code> containing unique elements from the multiset.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#%7C(other:Enumerable)-instance-method" class="signature"><strong>#|</strong>(other : Enumerable)</a>
-        
-          <div class="summary"><p>Returns a new multiset by performing mutiset union with <strong>other</strong>.</p></div>
         
       </li>
     
@@ -590,20 +574,17 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
         
         def self.<strong>new</strong>(enumerable : Enumerable(T))
 
-        <a class="method-permalink" href="#new(enumerable:Enumerable(T))-class-method">#</a>
+        <a class="method-permalink" href="#new%28enumerable%3AEnumerable%28T%29%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Creates a new multiset from the elements in <strong>enumerable</strong>.</p>
-
-<pre><code class="language-crystal"><span class="t">Multiset</span>.<span class="k">new</span>([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">1</span>]) <span class="c"># =&gt; Multiset{1, 1, 2, 3}</span></code></pre>
+<pre><code class="language-crystal"><span class="t">Multiset</span>.new([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">1</span>]) <span class="c"># =&gt; Multiset{1, 1, 2, 3}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L46" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -613,24 +594,20 @@ ms2.subset_of? ms1  <span class="c"># =&gt; true</span></code></pre>
         
         def self.<strong>new</strong>(initial_capacity = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#new(initial_capacity=nil)-class-method">#</a>
+        <a class="method-permalink" href="#new%28initial_capacity%3Dnil%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Create a new empty <code><a href="Multiset.html">Multiset</a></code>.</p>
-
 <p>If an <code>initial_capacity</code> is given, it will set the initial capacity
 of the internal <code>Hash</code>.</p>
-
-<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>(<span class="t">Int32</span>).<span class="k">new</span>
+<pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>(<span class="t">Int32</span>).new
 ms.empty <span class="c"># =&gt; true</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -654,16 +631,14 @@ ms.empty <span class="c"># =&gt; true</span></code></pre>
         
         def <strong>&</strong>(other : <a href="Multiset.html">Multiset</a>)
 
-        <a class="method-permalink" href="#&(other:Multiset)-instance-method">#</a>
+        <a class="method-permalink" href="#%26%28other%3AMultiset%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns a new multiset by performing multiset intersection with <strong>other</strong>.</p>
-
 <p>For each element, new multiplicity is minimum multiplicity in either
 multiset</p>
-
 <pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
 ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
 ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
@@ -675,8 +650,6 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L279" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -685,13 +658,11 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
         
         def <strong>&</strong>(other : Enumerable)
 
-        <a class="method-permalink" href="#&(other:Enumerable)-instance-method">#</a>
+        <a class="method-permalink" href="#%26%28other%3AEnumerable%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L288" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -701,20 +672,17 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
         
         def <strong>*</strong>(sf : Int32)
 
-        <a class="method-permalink" href="#*(sf:Int32)-instance-method">#</a>
+        <a class="method-permalink" href="#%2A%28sf%3AInt32%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Scales the multiplicity of all elements by <strong>sf</strong> and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>} <span class="o">*</span> <span class="n">2</span> <span class="c"># =&gt; Multiset{1, 1, 2, 2, 2, 2}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L354" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -724,22 +692,19 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
         
         def <strong>+</strong>(other)
 
-        <a class="method-permalink" href="#+(other)-instance-method">#</a>
+        <a class="method-permalink" href="#%2B%28other%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns a new multiset containing the elements from both <code>self</code> and
 <strong>other</strong>.</p>
-
 <pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">+</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>} <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">+</span> [<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>]         <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L177" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -749,20 +714,17 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
         
         def <strong>-</strong>(other : Enumerable)
 
-        <a class="method-permalink" href="#-(other:Enumerable)-instance-method">#</a>
+        <a class="method-permalink" href="#-%28other%3AEnumerable%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns a new multiset with all elements in <strong>other</strong> removed.</p>
-
 <pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="o">-</span> [<span class="n">1</span>, <span class="n">3</span>] <span class="c"># =&gt; Multiset{2}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L262" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -772,21 +734,18 @@ ms1 <span class="o">&amp;</span> ms3 <span class="c"># =&gt; Multiset{1, 1}</spa
         
         def <strong><<</strong>(object : T)
 
-        <a class="method-permalink" href="#%3C%3C(object:T)-instance-method">#</a>
+        <a class="method-permalink" href="#%3C%3C%28object%3AT%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Alias for <code><a href="Multiset.html#add(object:T,count:Int32)-instance-method">#add</a></code>.</p>
-
+          <p>Alias for <code><a href="Multiset.html#add%28object%3AT%2Ccount%3AInt32%29-instance-method">#add</a></code>.</p>
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&gt; Multiset{1, 2, 3, 4}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L144" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -796,7 +755,7 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
         
         def <strong>==</strong>(other : <a href="Multiset.html">Multiset</a>)
 
-        <a class="method-permalink" href="#==(other:Multiset)-instance-method">#</a>
+        <a class="method-permalink" href="#%3D%3D%28other%3AMultiset%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -807,8 +766,6 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L226" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -817,7 +774,7 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
         
         def <strong>==</strong>(other : Set)
 
-        <a class="method-permalink" href="#==(other:Set)-instance-method">#</a>
+        <a class="method-permalink" href="#%3D%3D%28other%3ASet%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -828,8 +785,6 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L231" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -838,16 +793,14 @@ ms <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="c"># =&
         
         def <strong>^</strong>(other : Enumerable)
 
-        <a class="method-permalink" href="#%5E(other:Enumerable)-instance-method">#</a>
+        <a class="method-permalink" href="#%5E%28other%3AEnumerable%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns a new multiset by performing symmetric difference with <strong>other</strong>.</p>
-
 <p>For each element, new multiplicity is absolute difference between
 multiplicity in either multiset.</p>
-
 <pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
 ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
 ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
@@ -859,7 +812,32 @@ ms1 <span class="o">^</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L328" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="|(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>|</strong>(other : Enumerable)
+
+        <a class="method-permalink" href="#%7C%28other%3AEnumerable%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a new multiset by performing mutiset union with <strong>other</strong>.</p>
+<p>For each element, new multiplicity is maximum multiplicity in either
+multiset.</p>
+<pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
+ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
+ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
+
+ms1 <span class="o">|</span> ms2 <span class="c"># =&gt; Multiset{1, 1, 1, 3, 3, 6, 2, 2, 4, 5}</span>
+ms1 <span class="o">|</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1, 1, 1, 2, 2, 3, 4, 5}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>
@@ -869,21 +847,18 @@ ms1 <span class="o">^</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1
         
         def <strong>add</strong>(object : T, count : Int32)
 
-        <a class="method-permalink" href="#add(object:T,count:Int32)-instance-method">#</a>
+        <a class="method-permalink" href="#add%28object%3AT%2Ccount%3AInt32%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Increments multiplicity of <strong>object</strong> by <strong>count</strong> and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.add(<span class="n">4</span>, <span class="n">2</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4, 4}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L121" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -893,21 +868,18 @@ ms.add(<span class="n">4</span>, <span class="n">2</span>) <span class="c"># =&g
         
         def <strong>add</strong>(object : T)
 
-        <a class="method-permalink" href="#add(object:T)-instance-method">#</a>
+        <a class="method-permalink" href="#add%28object%3AT%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Increments multiplicity of <strong>object</strong> and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.add(<span class="n">4</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L133" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -923,7 +895,6 @@ ms.add(<span class="n">4</span>) <span class="c"># =&gt; Multiset{1, 2, 3, 4}</s
         <div class="doc">
           
           <p>Removes all elements and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>}
 ms.clear
 ms.empty? <span class="c"># =&gt; true</span></code></pre>
@@ -931,8 +902,6 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L339" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -948,7 +917,6 @@ ms.empty? <span class="c"># =&gt; true</span></code></pre>
         <div class="doc">
           
           <p>Makes this multiset compare objects using their <code>object_id</code>.</p>
-
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&quot;string&quot;</span>}
 ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <span class="s">&quot;ing&quot;</span>) <span class="c"># =&gt; true</span>
 
@@ -959,8 +927,6 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L59" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -969,20 +935,17 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>compare_by_identity?</strong> : Bool
 
-        <a class="method-permalink" href="#compare_by_identity?:Bool-instance-method">#</a>
+        <a class="method-permalink" href="#compare_by_identity%3F%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset is comparing objects by <code>object_id</code>.</p>
-
 <p>See <code><a href="Multiset.html#compare_by_identity-instance-method">#compare_by_identity</a></code>.</p>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L67" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -992,21 +955,18 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>delete</strong>(object, count : Int32)
 
-        <a class="method-permalink" href="#delete(object,count:Int32)-instance-method">#</a>
+        <a class="method-permalink" href="#delete%28object%2Ccount%3AInt32%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Decrements multiplicity of <strong>object</strong> by <strong>count</strong> and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.delete(<span class="n">2</span>, <span class="n">1</span>) <span class="c"># =&gt; Multiset{1, 3}</span>
 <span class="t">Multiset</span>{<span class="n">4</span>, <span class="n">4</span>, <span class="n">5</span>}.delete(<span class="n">4</span>, <span class="n">2</span>) <span class="c"># =&gt; Multiset{5}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L198" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1016,21 +976,18 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>delete</strong>(object)
 
-        <a class="method-permalink" href="#delete(object)-instance-method">#</a>
+        <a class="method-permalink" href="#delete%28object%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Decrements multiplicity of <strong>object</strong> and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.delete(<span class="n">2</span>) <span class="c"># =&gt; Multiset{1, 3}</span>
 <span class="t">Multiset</span>{<span class="n">4</span>, <span class="n">4</span>, <span class="n">5</span>}.delete(<span class="n">4</span>) <span class="c"># =&gt; Multiset{4, 5}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L187" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1051,8 +1008,6 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L221" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1061,7 +1016,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>each</strong>(&)
 
-        <a class="method-permalink" href="#each(&)-instance-method">#</a>
+        <a class="method-permalink" href="#each%28%26%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1071,8 +1026,6 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L103" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1093,8 +1046,6 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L111" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1103,21 +1054,18 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>empty?</strong>
 
-        <a class="method-permalink" href="#empty?-instance-method">#</a>
+        <a class="method-permalink" href="#empty%3F-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset has no elements.</p>
-
-<pre><code class="language-crystal"><span class="t">Multiset</span>(<span class="t">Int32</span>).<span class="k">new</span>.empty? <span class="c"># =&gt; true</span>
+<pre><code class="language-crystal"><span class="t">Multiset</span>(<span class="t">Int32</span>).new.empty? <span class="c"># =&gt; true</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.empty?   <span class="c"># =&gt; false</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L87" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1127,7 +1075,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>hash</strong>(hasher)
 
-        <a class="method-permalink" href="#hash(hasher)-instance-method">#</a>
+        <a class="method-permalink" href="#hash%28hasher%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1138,8 +1086,6 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L454" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1148,13 +1094,12 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>includes?</strong>(object)
 
-        <a class="method-permalink" href="#includes?(object)-instance-method">#</a>
+        <a class="method-permalink" href="#includes%3F%28object%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if <strong>object</strong> is an element in the multiset.</p>
-
 <pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="n">3</span>)   <span class="c"># =&gt; true</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="n">4</span>)   <span class="c"># =&gt; false</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.includes?(<span class="s">&#39;a&#39;</span>) <span class="c"># =&gt; false</span></code></pre>
@@ -1162,8 +1107,6 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L98" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1173,18 +1116,16 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>inspect</strong>(io : IO) : Nil
 
-        <a class="method-permalink" href="#inspect(io:IO):Nil-instance-method">#</a>
+        <a class="method-permalink" href="#inspect%28io%3AIO%29%3ANil-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Alias of <code><a href="Multiset.html#to_s(io:IO):Nil-instance-method">#to_s</a></code>.</p>
+          <p>Alias of <code><a href="Multiset.html#to_s%28io%3AIO%29%3ANil-instance-method">#to_s</a></code>.</p>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L449" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1194,7 +1135,7 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>intersects?</strong>(other : <a href="Multiset.html">Multiset</a>)
 
-        <a class="method-permalink" href="#intersects?(other:Multiset)-instance-method">#</a>
+        <a class="method-permalink" href="#intersects%3F%28other%3AMultiset%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1205,8 +1146,6 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L361" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1215,21 +1154,18 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>merge</strong>(other : <a href="Multiset.html">Multiset</a>(T))
 
-        <a class="method-permalink" href="#merge(other:Multiset(T))-instance-method">#</a>
+        <a class="method-permalink" href="#merge%28other%3AMultiset%28T%29%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Adds each element of <strong>other</strong> and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.merge(ms) <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L154" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1239,21 +1175,18 @@ ms.includes?(<span class="s">&quot;str&quot;</span> <span class="o">+</span> <sp
         
         def <strong>merge</strong>(elems)
 
-        <a class="method-permalink" href="#merge(elems)-instance-method">#</a>
+        <a class="method-permalink" href="#merge%28elems%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Adds each element of <strong>elems</strong> and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.merge([<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>]) <span class="c"># =&gt; Multiset{1, 2, 3, 3, 4, 5}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L165" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1263,13 +1196,12 @@ ms.merge([<span class="n">3</span>, <span class="n">4</span>, <span class="n">5<
         
         def <strong>multiplicity</strong>(object : T)
 
-        <a class="method-permalink" href="#multiplicity(object:T)-instance-method">#</a>
+        <a class="method-permalink" href="#multiplicity%28object%3AT%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns count of <strong>object</strong> in the multiset.</p>
-
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>}
 ms.multiplicity(<span class="n">1</span>) <span class="c"># =&gt; 1</span>
 ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code></pre>
@@ -1277,8 +1209,6 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L211" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1288,7 +1218,7 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
         
         def <strong>multiplicity</strong>(object : U) forall U
 
-        <a class="method-permalink" href="#multiplicity(object:U)forallU-instance-method">#</a>
+        <a class="method-permalink" href="#multiplicity%28object%3AU%29forallU-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1299,8 +1229,6 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       <br/>
       <div>
         
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L216" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1309,22 +1237,17 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
         
         def <strong>proper_subset?</strong>(other : <a href="Multiset.html">Multiset</a>)
 
-        <a class="method-permalink" href="#proper_subset?(other:Multiset)-instance-method">#</a>
+        <a class="method-permalink" href="#proper_subset%3F%28other%3AMultiset%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset is a proper subset of <strong>other</strong>.</p>
-
 <p><span class="flag red">DEPRECATED</span>  Use #proper_subset_of? instead.</p>
-
-
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L437" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1334,13 +1257,12 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
         
         def <strong>proper_subset_of?</strong>(other : <a href="Multiset.html">Multiset</a>) : Bool
 
-        <a class="method-permalink" href="#proper_subset_of?(other:Multiset):Bool-instance-method">#</a>
+        <a class="method-permalink" href="#proper_subset_of%3F%28other%3AMultiset%29%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset is a proper subset of <strong>other</strong>.</p>
-
 <pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
@@ -1348,8 +1270,6 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L430" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1359,22 +1279,17 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
         
         def <strong>proper_superset?</strong>(other : <a href="Multiset.html">Multiset</a>)
 
-        <a class="method-permalink" href="#proper_superset?(other:Multiset)-instance-method">#</a>
+        <a class="method-permalink" href="#proper_superset%3F%28other%3AMultiset%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset is a proper superset of <strong>other</strong>.</p>
-
 <p><span class="flag red">DEPRECATED</span>  Use #proper_superset_of? instead.</p>
-
-
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L401" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1384,13 +1299,12 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
         
         def <strong>proper_superset_of?</strong>(other : <a href="Multiset.html">Multiset</a>) : Bool
 
-        <a class="method-permalink" href="#proper_superset_of?(other:Multiset):Bool-instance-method">#</a>
+        <a class="method-permalink" href="#proper_superset_of%3F%28other%3AMultiset%29%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset is a proper superset of <strong>other</strong>.</p>
-
 <pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.proper_superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.proper_superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.proper_superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; false</span></code></pre>
@@ -1398,8 +1312,6 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L394" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1415,15 +1327,12 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
         <div class="doc">
           
           <p>Returns the number of elements in the multiset.</p>
-
 <pre><code class="language-crystal"><span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.size       <span class="c"># =&gt; 3</span>
 <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.size <span class="c"># =&gt; 5</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L77" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1433,22 +1342,17 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
         
         def <strong>subset?</strong>(other : <a href="Multiset.html">Multiset</a>)
 
-        <a class="method-permalink" href="#subset?(other:Multiset)-instance-method">#</a>
+        <a class="method-permalink" href="#subset%3F%28other%3AMultiset%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset is a subset of <strong>other</strong>.</p>
-
 <p><span class="flag red">DEPRECATED</span>  Use #subset_of? instead.</p>
-
-
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L419" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1458,13 +1362,12 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
         
         def <strong>subset_of?</strong>(other : <a href="Multiset.html">Multiset</a>) : Bool
 
-        <a class="method-permalink" href="#subset_of?(other:Multiset):Bool-instance-method">#</a>
+        <a class="method-permalink" href="#subset_of%3F%28other%3AMultiset%29%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset is a subset of <strong>other</strong>.</p>
-
 <pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.subset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
@@ -1472,8 +1375,6 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L412" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1483,21 +1384,18 @@ ms.multiplicity(<span class="n">2</span>) <span class="c"># =&gt; 2</span></code
         
         def <strong>subtract</strong>(other : <a href="Multiset.html">Multiset</a>)
 
-        <a class="method-permalink" href="#subtract(other:Multiset)-instance-method">#</a>
+        <a class="method-permalink" href="#subtract%28other%3AMultiset%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">3</span>}) <span class="c"># =&gt; Multiset{2}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L241" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1507,21 +1405,18 @@ ms.subtract(<span class="t">Multiset</span>{<span class="n">1</span>, <span clas
         
         def <strong>subtract</strong>(other : Enumerable)
 
-        <a class="method-permalink" href="#subtract(other:Enumerable)-instance-method">#</a>
+        <a class="method-permalink" href="#subtract%28other%3AEnumerable%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Removes all elements in <strong>other</strong> and returns <code>self</code>.</p>
-
 <pre><code class="language-crystal">ms <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}
 ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c"># =&gt; Multiset{2}</span></code></pre>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L252" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1531,22 +1426,17 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
         
         def <strong>superset?</strong>(other : <a href="Multiset.html">Multiset</a>)
 
-        <a class="method-permalink" href="#superset?(other:Multiset)-instance-method">#</a>
+        <a class="method-permalink" href="#superset%3F%28other%3AMultiset%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset is a superset of <strong>other</strong>.</p>
-
 <p><span class="flag red">DEPRECATED</span>  Use #superset_of? instead.</p>
-
-
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L383" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1556,13 +1446,12 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
         
         def <strong>superset_of?</strong>(other : <a href="Multiset.html">Multiset</a>) : Bool
 
-        <a class="method-permalink" href="#superset_of?(other:Multiset):Bool-instance-method">#</a>
+        <a class="method-permalink" href="#superset_of%3F%28other%3AMultiset%29%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns <code>true</code> if the multiset is a superset of <strong>other</strong>.</p>
-
 <pre><code class="language-crystal"><span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>}.superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>} <span class="c"># =&gt; true</span>
 <span class="t">Mutiset</span>{<span class="n">1</span>, <span class="n">2</span>}.superset_of? <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">2</span>}    <span class="c"># =&gt; true</span></code></pre>
@@ -1570,8 +1459,6 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L376" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1581,7 +1468,7 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
         
         def <strong>to_s</strong>(io : IO) : Nil
 
-        <a class="method-permalink" href="#to_s(io:IO):Nil-instance-method">#</a>
+        <a class="method-permalink" href="#to_s%28io%3AIO%29%3ANil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1591,8 +1478,6 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L442" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1612,39 +1497,6 @@ ms.subtract([<span class="n">1</span>, <span class="n">3</span>]) <span class="c
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L345" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="|(other:Enumerable)-instance-method">
-      <div class="signature">
-        
-        def <strong>|</strong>(other : Enumerable)
-
-        <a class="method-permalink" href="#%7C(other:Enumerable)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Returns a new multiset by performing mutiset union with <strong>other</strong>.</p>
-
-<p>For each element, new multiplicity is maximum multiplicity in either
-multiset.</p>
-
-<pre><code class="language-crystal">ms1 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>}
-ms2 <span class="o">=</span> <span class="t">Multiset</span>{<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>, <span class="n">6</span>}
-ms3 <span class="o">=</span> <span class="t">Multiset</span>{<span class="s">&#39;a&#39;</span>, <span class="n">1</span>, <span class="n">1</span>}
-
-ms1 <span class="o">|</span> ms2 <span class="c"># =&gt; Multiset{1, 1, 1, 3, 3, 6, 2, 2, 4, 5}</span>
-ms1 <span class="o">|</span> ms3 <span class="c"># =&gt; Multiset{&#39;a&#39;, 1, 1, 1, 2, 2, 3, 4, 5}</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/tcrouch/multiset.cr/blob/ffaa838f7dd7c9ea15a10d84ab7c4aea4d66c4e0/src/multiset.cr#L311" target="_blank">View source</a>]
         
       </div>
     </div>
