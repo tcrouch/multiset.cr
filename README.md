@@ -1,6 +1,6 @@
 # multiset
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/tcrouch/multiset.cr/CI/master)
+[![CI](https://github.com/tcrouch/multiset.cr/actions/workflows/ci.yml/badge.svg)](https://github.com/tcrouch/multiset.cr/actions/workflows/ci.yml)
 [![Documentation](https://img.shields.io/badge/api-docs-informational)](https://tcrouch.github.io/multiset.cr)
 
 A multiset (bag) implementation in Crystal.
